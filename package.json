@@ -1,0 +1,19 @@
+{
+    "name": "wadjet",
+    "version": "0.1.0",
+    "description": "*",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/danmaq/wadjet.git"
+    },
+    "author": "danmaq (Shuhei Nomura)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/danmaq/wadjet/issues"
+    },
+    "homepage": "https://github.com/danmaq/wadjet"
+}
