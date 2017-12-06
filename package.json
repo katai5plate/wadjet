@@ -4,7 +4,7 @@
     "description": "*",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -15,5 +15,8 @@
     "bugs": {
         "url": "https://github.com/danmaq/wadjet/issues"
     },
-    "homepage": "https://github.com/danmaq/wadjet"
+    "homepage": "https://github.com/danmaq/wadjet",
+    "devDependencies": {
+        "jest": "^21.2.1"
+    }
 }
