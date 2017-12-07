@@ -208,7 +208,7 @@ const table = [...iter()].reverse();
 /**
  * Search monthly coefficient corresponding to the specified date.
  *
- * Returns an undefined when it did not exist.
+ * Returns an `undefined` when it did not exist.
  * 
  * @param {LocalDate} date Date information.
  * 

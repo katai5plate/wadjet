@@ -4,7 +4,7 @@ const { LocalDate } = require('js-joda');
 const coefMonthly = require('../../src/Master/coefMonthly');
 
 test(
-    'Whether is it function object.',
+    'Whether is `coefMonthly` function object.',
     () => expect(coefMonthly).toBeInstanceOf(Function));
 test(
     'When a date is specified, it returns a coefficient.',
