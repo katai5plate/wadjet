@@ -17,6 +17,12 @@ test(
         expect(coefMonthly(dateA)).toBeLessThanOrEqual(9);
     });
 test(
+    'When a date was not specified, it returns a today coefficient.',
+    () => {
+        const date = LocalDate.now();
+        expect(coefMonthly()).toEqual(coefMonthly(date));
+    });
+test(
     'Ignore difference in date.',
     () => {
         const dateA = LocalDate.parse('1873-02-01');
