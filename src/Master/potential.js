@@ -31,5 +31,4 @@ const table = [
  * Get potentials that corresponding to
  * the specified month and coefficients.
  */
-module.exports = ({ x = 0, y = 0 } = {}) =>
-    potential[(r => r ? r[x] : undefined)(table[y])];
+module.exports = require('./tableXY')({ label: potential, table });
