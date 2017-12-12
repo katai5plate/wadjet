@@ -55,3 +55,15 @@ test(
             expect(accessor(p)).toBeUndefined();
         }
     });
+test(
+    'When a index on specified position are outside range, it returns a undefined.',
+    () => {
+        const params = [
+            { x: 1, y: 2 },
+            { x: 2, y: 2 },
+        ];
+        const accessor = tableXY({ label, table });
+        for (let { v, ...p } of params) {
+            expect(accessor(p)).toBeUndefined();
+        }
+    });

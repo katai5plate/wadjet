@@ -1,6 +1,6 @@
 'use strict';
 
-const potential = [
+const label = [
     'Ci',
     'Co',
     'Ei',
@@ -31,4 +31,4 @@ const table = [
  * Get potentials that corresponding to
  * the specified month and coefficients.
  */
-module.exports = require('./tableXY')({ label: potential, table });
+module.exports = require('./tableXY')({ label, table });

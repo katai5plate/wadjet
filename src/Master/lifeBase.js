@@ -1,6 +1,7 @@
 'use strict';
 
-const lifeBase = [
+/** Life base values list. */
+const label = [
     'Application',
     'Association',
     'Development',
@@ -31,4 +32,4 @@ const table = [
  * Get life base that corresponding to
  * the specified month and coefficients.
  */
-module.exports = require('./tableXY')({ label: potential, table });
+module.exports = require('./tableXY')({ label, table });
