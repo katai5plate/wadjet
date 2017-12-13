@@ -34,6 +34,6 @@ test(
     () => {
         const dateA = LocalDate.parse('1873-01-01');
         const dateB = LocalDate.parse('2051-01-01');
-        expect(coefMonthly(dateA)).toBeUndefined();
-        expect(coefMonthly(dateB)).toBeUndefined();
+        expect(coefMonthly(dateA)).toBeNaN();
+        expect(coefMonthly(dateB)).toBeNaN();
     });

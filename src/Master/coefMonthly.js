@@ -221,5 +221,5 @@ module.exports =
         const m = date.monthValue();
         const result =
             table.find(({ month, year }) => month === m && year === y);
-        return result ? result.dcof : undefined;
+        return result ? result.dcof : Number.NaN;
     };
