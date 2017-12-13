@@ -1,6 +1,9 @@
 'use strict';
 
-const coefMonthly = require('./Master/coefMonthly')
+const coefMonthly = require('./Master/coefMonthly');
+const natures = require('./Master/natures');
+const naturesDesc = require('./Master/naturesDesc');
+const potential = require('./Master/potential');
 
 const { LocalDate, nativeJs } = require('js-joda');
 
@@ -13,8 +16,8 @@ module.exports =
     (birth = new Date()) => {
         const b = from(birth);
         const dcof = coefMonthly(b);
-        if (Number.isNaN(dcof)) { return {}; }
-        const yh = b.year() / 100;
+        if (Number.isNaN(dcof)) { throw new Error(); }
+        const yh = (b.year() / 100) >> 0;
         const yl = b.year() % 100;
         const m12 = (b.monthValue() <= 2) >> 0;
         const mb3 = b.monthValue() + m12 * 12;
@@ -27,6 +30,26 @@ module.exports =
             )((f = 0, v = 0) => (f * v) >> 0)
         const dGEcof = b.dayOfMonth() >= dcof;
         const zero = (l = 0, v = 0) => v || l;
-        const bb = b.monthValue() - (!dGEcof >> 0);
-        return {};
+        const bb = zero(12, b.monthValue() - !dGEcof >> 0) + 1;
+        const cc = (aa + 6) % 10;
+        const mz = (l = 0, v = 0) => zero(l, v % l);
+        const mn = (v = 0) => natures({ x: mz(12, v) - 1, y: cc });
+        const mp = (v = 0) => potential({ x: mz(10, v) - 1, y: cc });
+        const mnd =
+            (v = 0) => {
+                const nature = mn(v);
+                let d = naturesDesc.A000;
+                d = naturesDesc[nature];
+                return { ...d, nature };
+            };
+        const ymb3 =
+            yh * 100 + yl - (b.monthValue() === 2 && dGEcof ? m12 : 0);
+        return {
+            birth: b,
+            outer: mnd(bb),
+            inner: mnd(aa + yh * 4 + mb3 * 6),
+            workstyle: mn(ymb3 + 9),
+            cycle: zero(10, cc),
+            potential: `${mp(ymb3 + 7)}-${mp(b.year() * 2 + bb + 2)}`,
+        };
     };
