@@ -1,20 +1,25 @@
 'use strict';
 
+/** Communication values list. */
 const communication = ['Fix', 'Flex'];
 
+/** Management values list. */
 const management = ['Care', 'Hope'];
 
+/** Response values list. */
 const response = ['Action', 'Mind'];
 
+/** Position values list. */
 const position = ['Adjust', 'Brain', 'Direct', 'Quick'];
 
+/** Motivation values list. */
 const motivation = [
     'Competition', 'OwnMind', 'Power', 'Safety', 'SkillUp', 'Status',
 ];
 
 /**
- * 
- * @param {number[]} row 
+ * Generate description data row.
+ * @param {number[]} row row values.
  */
 const generate = (...row) =>
     Object.freeze({
@@ -25,6 +30,7 @@ const generate = (...row) =>
         motivation: motivation[row[4]],
     })
 
+/** Natures description. */
 module.exports =
     Object.freeze({
         A000: generate(1, 1, 1, 1, 5),
