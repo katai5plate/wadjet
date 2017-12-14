@@ -19,8 +19,6 @@ const table = [
 ];
 
 module.exports =
-    (month = 1, b9 = 0, b10 = 0) =>
-    (row =>
-        !row ? N :
-        row.find(v => Number.isNaN(v.t) || b9 < b10 + v.t).v
-    )(table[month - 1]);
+    (month = 1, date = 0, dcoef = 0) =>
+    (r => !r ? N : r.find(v => Number.isNaN(v.t) || date < dcoef + v.t).v)(
+        table[month - 1]);
