@@ -1,0 +1,7 @@
+{
+    "search.exclude": {
+        "**/.git": true,
+        "**/.wercker": true,
+        "**/node_modules": true
+    }
+}
