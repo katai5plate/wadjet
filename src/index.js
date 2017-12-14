@@ -1,6 +1,8 @@
 'use strict';
 
 const coefMonthly = require('./Master/coefMonthly');
+const lifeBase = require('./Master/lifeBase');
+const lifeBaseCoef = require('./Master/lifeBaseCoef');
 const natures = require('./Master/natures');
 const naturesDesc = require('./Master/naturesDesc');
 const potential = require('./Master/potential');
@@ -44,12 +46,13 @@ module.exports =
             };
         const ymb3 =
             yh * 100 + yl - (b.monthValue() === 2 && dGEcof ? m12 : 0);
+        const coef = lifeBaseCoef(b.monthValue(), b.dayOfMonth(), dcof);
         return {
-            birth: b,
-            outer: mnd(bb),
             inner: mnd(aa + yh * 4 + mb3 * 6),
-            workstyle: mn(ymb3 + 9),
+            outer: mnd(bb),
             cycle: zero(10, cc),
+            lifeBase: lifeBase({ x: coef - 1, y: cc }),
             potential: `${mp(ymb3 + 7)}-${mp(b.year() * 2 + bb + 2)}`,
+            workstyle: mn(ymb3 + 9),
         };
     };
