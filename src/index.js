@@ -37,27 +37,20 @@ const naturePotential =
 module.exports =
     (birth = new Date()) => {
         const { year, month, date, dcoef } = ymd(birth);
-        const yh = (year / 100) >> 0;
+        const yh = year * 0.01 >> 0;
         const yl = year % 100;
-        const m12 = (month <= 2) >> 0;
-        const mb3 = month + m12 * 12;
-        const inner =
-            (fi =>
-                fi(5.25, yl - m12) +
-                fi(0.6, mb3 + 1) +
-                fi(4.25, yh) +
-                date + 1
-            )((f = 0, v = 0) => (f * v) >> 0)
+        const early = (month <= 2) >> 0;
+        const mb3 = month + early * 12;
+        const inner = [5.25 * (yl - early), 0.6 * mb3 + 1, 4.25 * yh]
+            .reduce((p, c) => p + (c >> 0), date + 1);
         const dGEcof = date >= dcoef;
         const outer = (month - (!dGEcof >> 0) || 12) + 1;
         const cycle = (inner + 6) % 10;
         const { mn, mp } = naturePotential(cycle);
         const desc =
-            (v = 0) => {
-                const nature = mn(v);
-                return { ...naturesDesc(nature), nature };
-            };
-        const ymb = yh * 100 + yl - (month === 2 && dGEcof ? m12 : 0);
+            (v = 0) =>
+            (nature => ({ ...naturesDesc(nature), nature }))(mn(v));
+        const ymb = yh * 100 + yl - (month === 2 && dGEcof ? early : 0);
         const lbp = { x: lifeBaseCoef(month, date, dcoef) - 1, y: cycle };
         return {
             inner: desc(inner + yh * 4 + mb3 * 6),
