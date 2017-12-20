@@ -182,17 +182,19 @@ const record = [
     5, 4, 5, 4, 5, 5, 7, 7, 7, 8, 7, 7,
 ];
 
-const { LocalDate } = require('js-joda');
-
 /**
  * Iterator function for generating monthly coefficient and
  * year / month information pair.
  */
 function* iter() {
-    let date = LocalDate.parse('1873-01-01');
+    let date = new Date('1873-01-01');
     for (let dcof of record) {
-        date = date.plusMonths(1);
-        yield { month: date.monthValue(), year: date.year(), dcof };
+        date.setMonth(date.getMonth() + 1);
+        yield {
+            month: date.getMonth() + 1,
+            year: date.getFullYear(),
+            dcof,
+        };
     }
 }
 
@@ -210,15 +212,15 @@ const table = [...iter()].reverse();
  *
  * Returns an `undefined` when it did not exist.
  * 
- * @param {LocalDate} date Date information.
+ * @param {Date} date Date information.
  * 
  * Ignoring that information other than year / month.
  * @returns {number} Monthly coefficient.
  */
 module.exports =
-    (date = LocalDate.now()) => {
-        const y = date.year();
-        const m = date.monthValue();
+    (date = new Date()) => {
+        const y = date.getFullYear();
+        const m = date.getMonth() + 1;
         const result =
             table.find(({ month, year }) => month === m && year === y);
         return result ? result.dcof : Number.NaN;

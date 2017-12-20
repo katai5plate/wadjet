@@ -7,12 +7,9 @@ const natures = require('./Master/natures');
 const naturesDesc = require('./Master/naturesDesc');
 const potential = require('./Master/potential');
 
-const { LocalDate, nativeJs } = require('js-joda');
-
 const from =
     (date = new Date()) =>
-    (typeof date) === 'string' ? LocalDate.parse(date) :
-    LocalDate.from(nativeJs(date));
+    (typeof date) === 'string' ? new Date(date) : date;
 
 const ymd =
     (birth = new Date()) => {
@@ -20,9 +17,9 @@ const ymd =
         const dcoef = coefMonthly(ld);
         if (Number.isNaN(dcoef)) { throw new Error(); }
         return {
-            year: ld.year(),
-            month: ld.monthValue(),
-            date: ld.dayOfMonth(),
+            year: ld.getFullYear(),
+            month: ld.getMonth() + 1,
+            date: ld.getDate(),
             dcoef
         };
     };

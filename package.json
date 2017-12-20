@@ -20,9 +20,6 @@
         "@types/jest": "^21.1.8",
         "jest": "^21.2.1"
     },
-    "dependencies": {
-        "js-joda": "^1.6.2"
-    },
     "jest": {
         "verbose": false
     }
