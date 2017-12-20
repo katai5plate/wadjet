@@ -40,8 +40,3 @@ console.log(result); // See: Result
     "workstyle": "E001"
 }
 ```
-
-## TODO
-
-* Publish to npm.
-* Refactoring.
