@@ -1,21 +1,5 @@
 'use strict';
 
-/** Natures values list. */
-const label = [
-    'A000',
-    'A024',
-    'A100',
-    'A888',
-    'E001',
-    'E125',
-    'E555',
-    'E919',
-    'H012',
-    'H025',
-    'H108',
-    'H789',
-];
-
 /** A table of natures corresponding to month and coefficients. */
 const table = [
     [2, 8, 3, 7, 10, 4, 0, 9, 1, 5, 11, 6],
@@ -34,4 +18,5 @@ const table = [
  * Get natures that corresponding to
  * the specified month and coefficients.
  */
-module.exports = require('./tableXY')({ label, table });
+module.exports =
+    require('./tableXY')({ label: require('../Enum/natures'), table });

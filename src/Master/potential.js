@@ -1,18 +1,5 @@
 'use strict';
 
-const label = [
-    'Ci',
-    'Co',
-    'Ei',
-    'Eo',
-    'Fi',
-    'Fo',
-    'Ii',
-    'Io',
-    'Ni',
-    'No',
-];
-
 /** A table of potentials corresponding to month and coefficients. */
 const table = [
     [2, 3, 4, 5, 8, 9, 0, 1, 6, 7],
@@ -31,4 +18,5 @@ const table = [
  * Get potentials that corresponding to
  * the specified month and coefficients.
  */
-module.exports = require('./tableXY')({ label, table });
+module.exports =
+    require('./tableXY')({ label: require('../Enum/potential'), table });

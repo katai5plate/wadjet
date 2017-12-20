@@ -9,4 +9,4 @@ module.exports =
         ]
     } = {}) =>
     ({ x = 0, y = 0 } = {}) =>
-    label[(r => r ? r[x] : undefined)(table[y])];
+    (z => z || '')(label[(r => r ? r[x] : undefined)(table[y])]);

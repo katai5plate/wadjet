@@ -26,7 +26,7 @@ test(
         expect(potential({ y: 5 })).toEqual(potential({ x: 0, y: 5 }));
     });
 test(
-    'When a position are outside range, it returns a undefined.',
+    'When a position are outside range, it returns a falsy.',
     () => {
         const params = [
             { x: -1, y: 0 },
@@ -38,5 +38,5 @@ test(
             { x: -1, y: 10 },
             { x: 10, y: 10 },
         ];
-        for (let p of params) { expect(potential(p)).toBeUndefined(); }
+        for (let p of params) { expect(potential(p)).toBe(''); }
     });

@@ -7,52 +7,59 @@ const natures = require('./Master/natures');
 const naturesDesc = require('./Master/naturesDesc');
 const potential = require('./Master/potential');
 
-const { LocalDate, nativeJs } = require('js-joda');
+/**
+ * Create to year, month, date and coefficient of date from input.
+ * @param {Date|string} birth Birthday.
+ */
+const ymd =
+    birth => {
+        const ld = (typeof birth) === 'string' ? new Date(birth) : birth;
+        const dcoef = coefMonthly(ld);
+        if (Number.isNaN(dcoef)) { throw new Error(); }
+        return {
+            year: ld.getFullYear() >> 0,
+            month: ld.getMonth() + 1 >> 0,
+            date: ld.getDate() >> 0,
+            dcoef
+        };
+    };
 
-const from =
-    (date = new Date()) =>
-    (typeof date) === 'string' ? LocalDate.parse(date) :
-    LocalDate.from(nativeJs(date));
+/**
+ * Generate the calculation function of the nature and the potential.
+ * @param {number} cycle cycle coef.
+ */
+const naturePotential =
+    cycle =>
+    (code => ({ mn: code(natures, 12), mp: code(potential, 10) }))(
+        (func = (({ x = 0, y = 0 }) => `${''}`), limit = 0) =>
+        (v = 0) =>
+        func({ x: (v % limit || limit) - 1, y: cycle }));
 
+/**
+ * Get personality from birthday.
+ * @param {Date|string} birth Birthday.
+ */
 module.exports =
     (birth = new Date()) => {
-        const b = from(birth);
-        const dcof = coefMonthly(b);
-        if (Number.isNaN(dcof)) { throw new Error(); }
-        const yh = (b.year() / 100) >> 0;
-        const yl = b.year() % 100;
-        const m12 = (b.monthValue() <= 2) >> 0;
-        const mb3 = b.monthValue() + m12 * 12;
-        const aa =
-            (fi =>
-                fi(5.25, yl - m12) +
-                fi(0.6, mb3 + 1) +
-                fi(4.25, yh) +
-                b.dayOfMonth() + 1
-            )((f = 0, v = 0) => (f * v) >> 0)
-        const dGEcof = b.dayOfMonth() >= dcof;
-        const zero = (l = 0, v = 0) => v || l;
-        const bb = zero(12, b.monthValue() - !dGEcof >> 0) + 1;
-        const cc = (aa + 6) % 10;
-        const mz = (l = 0, v = 0) => zero(l, v % l);
-        const mn = (v = 0) => natures({ x: mz(12, v) - 1, y: cc });
-        const mp = (v = 0) => potential({ x: mz(10, v) - 1, y: cc });
-        const mnd =
-            (v = 0) => {
-                const nature = mn(v);
-                let d = naturesDesc.A000;
-                d = naturesDesc[nature];
-                return { ...d, nature };
-            };
-        const ymb3 =
-            yh * 100 + yl - (b.monthValue() === 2 && dGEcof ? m12 : 0);
-        const coef = lifeBaseCoef(b.monthValue(), b.dayOfMonth(), dcof);
+        const { year, month, date, dcoef } = ymd(birth);
+        const yh = year * 0.01 >> 0;
+        const early = (month <= 2) >> 0;
+        const icoef = month + early * 12;
+        const inner =
+            ([5.25 * (year % 100 - early), 0.6 * icoef + 1, 4.25 * yh]
+                .reduce((p, c) => p + (c >> 0), date + 1));
+        const ge = date >= dcoef;
+        const outer = (month - (!ge >> 0) || 12) + 1;
+        const ymb = year - (month === 2 && ge ? early : 0);
+        const lbc = lifeBaseCoef({ month, dcoef: date - dcoef }) - 1;
+        const cycle = (inner + 6) % 10;
+        const { mn, mp } = naturePotential(cycle);
         return {
-            inner: mnd(aa + yh * 4 + mb3 * 6),
-            outer: mnd(bb),
-            cycle: zero(10, cc),
-            lifeBase: lifeBase({ x: coef - 1, y: cc }),
-            potential: `${mp(ymb3 + 7)}-${mp(b.year() * 2 + bb + 2)}`,
-            workstyle: mn(ymb3 + 9),
+            inner: naturesDesc(mn(inner + yh * 4 + icoef * 6)),
+            outer: naturesDesc(mn(outer)),
+            cycle: cycle || 10,
+            lifeBase: lifeBase({ x: lbc, y: cycle }),
+            potential: `${mp(ymb + 7)}-${mp(year * 2 + outer + 2)}`,
+            workstyle: mn(ymb + 9),
         };
     };
