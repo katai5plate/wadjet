@@ -47,16 +47,14 @@ module.exports =
         const outer = (month - (!dGEcof >> 0) || 12) + 1;
         const cycle = (inner + 6) % 10;
         const { mn, mp } = naturePotential(cycle);
-        const desc =
-            (v = 0) =>
-            (nature => ({ ...naturesDesc(nature), nature }))(mn(v));
+        const desc = (v = 0) => (n => naturesDesc(n))(mn(v));
         const ymb = yh * 100 + yl - (month === 2 && dGEcof ? early : 0);
-        const lbp = { x: lifeBaseCoef(month, date, dcoef) - 1, y: cycle };
+        const lbc = lifeBaseCoef({ month, dcoef: date - dcoef }) - 1;
         return {
             inner: desc(inner + yh * 4 + mb3 * 6),
             outer: desc(outer),
             cycle: cycle || 10,
-            lifeBase: lifeBase(lbp),
+            lifeBase: lifeBase({ x: lbc, y: cycle }),
             potential: `${mp(ymb + 7)}-${mp(year * 2 + outer + 2)}`,
             workstyle: mn(ymb + 9),
         };
