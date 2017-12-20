@@ -1,19 +1,5 @@
 'use strict';
 
-/** Life base values list. */
-const label = [
-    'Application',
-    'Association',
-    'Development',
-    'Expression',
-    'Finance',
-    'Investment',
-    'Organization',
-    'Quest',
-    'SelfMind',
-    'SelfReliance',
-];
-
 /** A table of life base corresponding to month and coefficients. */
 const table = [
     [2, 3, 5, 4, 6, 1, 7, 0, 8, 9],
@@ -32,4 +18,5 @@ const table = [
  * Get life base that corresponding to
  * the specified month and coefficients.
  */
-module.exports = require('./tableXY')({ label, table });
+module.exports =
+    require('./tableXY')({ label: require('../Enum/lifeBase'), table });
