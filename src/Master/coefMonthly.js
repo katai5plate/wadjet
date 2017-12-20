@@ -218,7 +218,7 @@ const table = [...iter()].reverse();
  * @returns {number} Monthly coefficient.
  */
 module.exports =
-    (date = new Date()) => {
+    date => {
         const y = date.getFullYear();
         const m = date.getMonth() + 1;
         const result =

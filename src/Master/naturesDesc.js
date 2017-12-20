@@ -26,24 +26,16 @@ const natures = require('../Enum/natures');
  */
 const generate = (...row) =>
     Object.freeze({
-        communication: communication[row[0]],
-        management: management[row[1]],
-        response: response[row[2]],
-        position: position[row[3]],
-        motivation: motivation[row[4]],
-        nature: natures[row[5]],
+        communication: communication[row[0]] || '',
+        management: management[row[1]] || '',
+        response: response[row[2]] || '',
+        position: position[row[3]] || '',
+        motivation: motivation[row[4]] || '',
+        nature: natures[row[5]] || '',
     });
 
 /** Default value when key did not found. */
-const unknown =
-    Object.freeze({
-        communication: '',
-        management: '',
-        response: '',
-        position: '',
-        motivation: '',
-        nature: '',
-    });
+const unknown = generate(-1, -1, -1, -1, -1, -1);
 
 /** Map of natures description data. */
 const map =
@@ -62,5 +54,8 @@ const map =
         [1, 0, 1, 2, 3],
     ].map((value, index) => [natures[index], generate(...value, index)]));
 
-/** Natures description. */
-module.exports = (key = '') => map.get(key) || unknown;
+/**
+ * Get the details corresponding to the specified nature.
+ * @param {string} key Nature key.
+ */
+module.exports = key => map.get(key) || unknown;
