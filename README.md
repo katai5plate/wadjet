@@ -1,7 +1,7 @@
 # 👁️‍🗨️ Wadjet
 
 🔮🎂 The __your birth date__ is based on statistical psychology and will __expose your personality__.
-This package as a mocule does its calculations.
+This package as a module does its calculations.
 
 See also: F# Version (Obsolete): https://github.com/danmaq/birth.fs
 
