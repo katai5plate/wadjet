@@ -1,6 +1,6 @@
 {
     "name": "wadjet",
-    "version": "0.2.2",
+    "version": "1.0.0",
     "description": "The your birth date is based on statistical psychology and will expose your personality. This package as a mocule does its calculations.",
     "keywords": ["psychology", "divination", "jokes"],
     "main": "src/index.js",
