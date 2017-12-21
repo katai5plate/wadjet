@@ -3,7 +3,11 @@
 🔮🎂 The __your birth date__ is based on statistical psychology and will __expose your personality__.
 This package as a module does its calculations.
 
-See also: F# Version (Obsolete): https://github.com/danmaq/birth.fs
+## Install
+
+```SH
+$ npm install --save wadjet
+```
 
 ## Usage
 
@@ -11,7 +15,7 @@ See also: F# Version (Obsolete): https://github.com/danmaq/birth.fs
 const wadjet = require('wadjet');
 const result = wadjet('2007-08-31');
 console.log(typeof result); // object
-console.log(result); // See: Result
+console.log(JSON.stringify(result, null, 4)); // See: Result
 ```
 
 ### Result
@@ -26,7 +30,7 @@ console.log(result); // See: Result
         "motivation": "Competition",
         "nature": "E919"
     },
-    "outer":{
+    "outer": {
         "communication": "Flex",
         "management": "Hope",
         "response": "Action",
@@ -40,3 +44,8 @@ console.log(result); // See: Result
     "workstyle": "E001"
 }
 ```
+
+## See also
+
+* [Implemented it for command line interface](https://github.com/danmaq/wadjet-cli)
+* [F# Version (Obsolete)](https://github.com/danmaq/birth.fs)
