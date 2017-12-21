@@ -213,7 +213,8 @@ const table = [...iter()].reverse();
  * Returns an `undefined` when it did not exist.
  * 
  * @param {Date} date Date information.
- * 
+ *
+ * It can be set from 1873-02-01 to 2050-12-31.
  * Ignoring that information other than year / month.
  * @returns {number} Monthly coefficient.
  */

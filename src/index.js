@@ -38,6 +38,7 @@ const naturePotential =
 /**
  * Get personality from birthday.
  * @param {Date|string} birth Birthday.
+ * It can be set from 1873-02-01 to 2050-12-31.
  */
 module.exports =
     (birth = new Date()) => {
@@ -46,7 +47,7 @@ module.exports =
         const early = (month <= 2) >> 0;
         const icoef = month + early * 12;
         const inner =
-            ([5.25 * (year % 100 - early), 0.6 * icoef + 1, 4.25 * yh]
+            ([5.25 * (year % 100 - early), 0.6 * (icoef + 1), 4.25 * yh]
                 .reduce((p, c) => p + (c >> 0), date + 1));
         const ge = date >= dcoef;
         const outer = (month - (!ge >> 0) || 12) + 1;
