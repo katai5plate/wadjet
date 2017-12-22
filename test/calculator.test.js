@@ -1,11 +1,11 @@
 'use strict';
 
-const wadjet = require('../src');
+const calculator = require('../src/calculator');
 
-test('is Function', () => expect(wadjet).toBeInstanceOf(Function));
-test('Be truthy', () => expect(wadjet()).toBeTruthy());
+test('is Function', () => expect(calculator).toBeInstanceOf(Function));
+test('Be truthy', () => expect(calculator()).toBeTruthy());
 test('situation A', () => {
-    const result = wadjet('2007-08-31');
+    const result = calculator('2007-08-31');
     const expected = {
         cycle: 4,
         lifeBase: 'Investment',
@@ -31,7 +31,7 @@ test('situation A', () => {
     expect(result).toEqual(expected);
 });
 test('situation B', () => {
-    const result = wadjet('1981-10-12');
+    const result = calculator('1981-10-12');
     const expected = {
         cycle: 10,
         lifeBase: 'Application',
