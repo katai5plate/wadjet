@@ -5,6 +5,14 @@ This package as a module does its calculations.
 
 ## Install
 
+### Using yarn
+
+```SH
+$ yarn add wadjet
+```
+
+### Using npm
+
 ```SH
 $ npm install --save wadjet
 ```
@@ -13,9 +21,11 @@ $ npm install --save wadjet
 
 ```JavaScript
 const wadjet = require('wadjet');
-const result = wadjet('2007-08-31');
+const result = wadjet.calc('2007-08-31');
 console.log(typeof result); // object
 console.log(JSON.stringify(result, null, 4)); // See: Result
+const outer = wadjet.detail('A888'); // Equals to `result.outer`
+const inner = wadjet.detail(result.inner.nature); // Equals to `result.inner`
 ```
 
 ### Result
@@ -44,6 +54,10 @@ console.log(JSON.stringify(result, null, 4)); // See: Result
     "workstyle": "E001"
 }
 ```
+
+## Upgrade from 1.x.x
+
+`s/wadjet\(/wadjet.calc(/g`
 
 ## See also
 
