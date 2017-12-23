@@ -1,11 +1,11 @@
 'use strict';
 
-const coefMonthly = require('./Master/coefMonthly');
-const lifeBase = require('./Master/lifeBase');
-const lifeBaseCoef = require('./Master/lifeBaseCoef');
-const natures = require('./Master/natures');
-const naturesDesc = require('./Master/naturesDesc');
-const potential = require('./Master/potential');
+const coefMonthly = require('../master/coefMonthly');
+const lifeBase = require('../master/lifeBase');
+const lifeBaseCoef = require('../master/lifeBaseCoef');
+const natures = require('../master/natures');
+const naturesDesc = require('../master/naturesDesc');
+const potential = require('../master/potential');
 
 /**
  * Create to year, month, date and coefficient of date from input.

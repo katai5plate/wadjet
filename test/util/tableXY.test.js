@@ -1,6 +1,6 @@
 'use strict';
 
-const tableXY = require('../../src/Master/tableXY');
+const tableXY = require('../../src/util/tableXY');
 
 const label = ['Foo', 'Bar', 'Baz', 'Qux'];
 const table = [

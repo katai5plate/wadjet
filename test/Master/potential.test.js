@@ -1,6 +1,6 @@
 'use strict';
 
-const potential = require('../../src/Master/potential');
+const potential = require('../../src/master/potential');
 
 test(
     'Whether is `potential` function object.',
