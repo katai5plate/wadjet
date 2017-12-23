@@ -1,7 +1,7 @@
 'use strict';
 
-const naturesDesc = require('../../src/Master/naturesDesc');
-const natures = require('../../src/Enum/natures');
+const naturesDesc = require('../../src/master/naturesDesc');
+const natures = require('../../src/enum/natures');
 
 test(
     'Whether is `naturesDesc` general object.',
@@ -19,6 +19,8 @@ test(
             expect(desc.motivation).toBeTruthy();
             expect(desc.nature).toBeTruthy();
             expect(desc.nature).toBe(nature);
+            expect(desc.business).toBeTruthy();
+            expect(desc.romance).toBeTruthy();
         }
     });
 test(
@@ -32,4 +34,6 @@ test(
         expect(desc.position).toBeFalsy();
         expect(desc.motivation).toBeFalsy();
         expect(desc.nature).toBeFalsy();
+        expect(desc.business).toEqual({});
+        expect(desc.romance).toEqual({});
     });

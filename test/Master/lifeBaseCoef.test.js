@@ -1,6 +1,6 @@
 'use strict';
 
-const lifeBaseCoef = require('../../src/Master/lifeBaseCoef');
+const lifeBaseCoef = require('../../src/master/lifeBaseCoef');
 
 test(
     'Whether is `lifeBaseCoef` function object.',

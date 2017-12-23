@@ -1,6 +1,6 @@
 'use strict';
 
-const natures = require('../../src/Master/natures');
+const natures = require('../../src/master/natures');
 
 test(
     'Whether is `natures` function object.',

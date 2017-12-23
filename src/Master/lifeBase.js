@@ -1,5 +1,7 @@
 'use strict';
 
+const tableXY = require('../util/tableXY');
+
 /** A table of life base corresponding to month and coefficients. */
 const table = [
     [2, 3, 5, 4, 6, 1, 7, 0, 8, 9],
@@ -18,5 +20,4 @@ const table = [
  * Get life base that corresponding to
  * the specified month and coefficients.
  */
-module.exports =
-    require('./tableXY')({ label: require('../Enum/lifeBase'), table });
+module.exports = tableXY({ label: require('../enum/lifeBase'), table });

@@ -18,7 +18,13 @@ const motivation = [
 ];
 
 /** Natures values list. */
-const natures = require('../Enum/natures');
+const natures = require('../enum/natures');
+
+/** Romance formation level table. */
+const romance = require('./natureRomance');
+
+/** Good business formation level table. */
+const business = require('./natureBiz');
 
 /**
  * Generate description data row.
@@ -32,6 +38,8 @@ const generate = (...row) =>
         position: position[row[3]] || '',
         motivation: motivation[row[4]] || '',
         nature: natures[row[5]] || '',
+        romance: romance[natures[row[5]]] || {},
+        business: business[natures[row[5]]] || {},
     });
 
 /** Default value when key did not found. */

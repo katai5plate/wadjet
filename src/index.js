@@ -1,6 +1,6 @@
 'use strict';
 
-const calc = require('./calculator');
-const detail = require('./Master/naturesDesc');
+const calc = require('./util/calculator');
+const detail = require('./master/naturesDesc');
 
 module.exports = Object.freeze({ calc, detail });

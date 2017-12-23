@@ -1,5 +1,7 @@
 'use strict';
 
+const tableXY = require('../util/tableXY');
+
 /** A table of natures corresponding to month and coefficients. */
 const table = [
     [2, 8, 3, 7, 10, 4, 0, 9, 1, 5, 11, 6],
@@ -18,5 +20,4 @@ const table = [
  * Get natures that corresponding to
  * the specified month and coefficients.
  */
-module.exports =
-    require('./tableXY')({ label: require('../Enum/natures'), table });
+module.exports = tableXY({ label: require('../enum/natures'), table });

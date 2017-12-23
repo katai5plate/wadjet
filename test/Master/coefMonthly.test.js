@@ -1,6 +1,6 @@
 'use strict';
 
-const coefMonthly = require('../../src/Master/coefMonthly');
+const coefMonthly = require('../../src/master/coefMonthly');
 
 test(
     'Whether is `coefMonthly` function object.',
