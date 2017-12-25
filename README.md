@@ -20,7 +20,8 @@ $ npm install --save wadjet
 ## Usage
 
 ```JavaScript
-const wadjet = require('wadjet');
+import wadjet from 'wadjet';
+
 const result = wadjet.calc('2007-08-31');
 console.log(typeof result); // object
 console.log(JSON.stringify(result, null, 4)); // See: Result
@@ -111,9 +112,23 @@ const inner = wadjet.detail(result.inner.nature); // Equals to `result.inner`
 }
 ```
 
-## Upgrade from 1.x.x
+## Dependencies
 
-`s/wadjet\(/wadjet.calc(/g`
+* nodejs >= 4.8.3
+* yarn (Optional)
+
+The Wadjet consists pure JS only, it's not dependent on a architecture.
+
+## Migrate
+
+### from 1.x.x
+
+1. `s/wadjet\(/wadjet.calc(/g`
+2. `s/require\('wadjet'\);/require('wadjet').default;/g`
+
+### from 2.x.x
+
+1. `s/require\('wadjet'\);/require('wadjet').default;/g`
 
 ## APIs
 
@@ -123,10 +138,10 @@ const inner = wadjet.detail(result.inner.nature); // Equals to `result.inner`
 import wadjet from 'wadjet';
 ```
 
-or
+If you want the CommonJS style notation:
 
 ```JavaScript
-const wadjet = require('wadjet');
+const wadjet = require('wadjet').default;
 ```
 
 ### `wadjet.calc`
@@ -144,15 +159,6 @@ wadjet.detail(key: String) -> Object
 ```
 
 * `key`: Nature type.
-
-### [Deprecated] `wadjet`
-
-```JavaScript
-wadjet(birth: Date | String) -> Object
-```
-
-__This function was no longer__ since version 2.0.0.  
-This function as same as `wadjet.calc` function.
 
 ## See also
 

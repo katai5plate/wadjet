@@ -1,6 +1,6 @@
 'use strict';
 
-const potential = require('../../src/master/potential');
+import potential from '../../dist/master/potential';
 
 test(
     'Whether is `potential` function object.',

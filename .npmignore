@@ -1,3 +1,7 @@
 .jsbeautifyrc
 .vscode
+__test__
+gulpfile.js
+node_modules
+src
 test

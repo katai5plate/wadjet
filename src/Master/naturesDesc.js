@@ -1,5 +1,9 @@
 'use strict';
 
+import natures from '../enum/natures';
+import romance from './natureRomance';
+import business from './natureBiz';
+
 /** Communication values list. */
 const communication = ['Fix', 'Flex'];
 
@@ -16,15 +20,6 @@ const position = ['Adjust', 'Brain', 'Direct', 'Quick'];
 const motivation = [
     'Competition', 'OwnMind', 'Power', 'Safety', 'SkillUp', 'Status',
 ];
-
-/** Natures values list. */
-const natures = require('../enum/natures');
-
-/** Romance formation level table. */
-const romance = require('./natureRomance');
-
-/** Good business formation level table. */
-const business = require('./natureBiz');
 
 /**
  * Generate description data row.
@@ -66,4 +61,4 @@ const map =
  * Get the details corresponding to the specified nature.
  * @param {string} key Nature key.
  */
-module.exports = key => map.get(key) || unknown;
+export default key => map.get(key) || unknown;
