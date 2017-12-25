@@ -3,8 +3,7 @@
 set NPM_USER [lindex $argv 0]
 set NPM_EMAIL [lindex $argv 1]
 set NPM_PASS [lindex $argv 2]
-set PROMPT "\[#$%>\]"
-set timeout 3
+set PROMPT "\[#%>\]"
 
 spawn yarn publish
 expect {
