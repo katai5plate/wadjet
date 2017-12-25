@@ -1,6 +1,6 @@
 'use strict';
 
-import natures from '../enum/natures';
+import natures from '~/dist/enum/natures';
 
 /**
  * Generate a nature map by specified table.

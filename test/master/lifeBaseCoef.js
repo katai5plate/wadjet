@@ -1,6 +1,6 @@
 'use strict';
 
-import lifeBaseCoef from '../../dist/master/lifeBaseCoef';
+import lifeBaseCoef from '~/dist/master/lifeBaseCoef';
 
 test(
     'Whether is `lifeBaseCoef` function object.',
@@ -17,7 +17,7 @@ test(
             { month: 12, dcoef: 100 },
         ];
         for (let p of params) {
-            const lbc = lifeBaseCoef(p);
+            const lbc = lifeBaseCoef(p.month, p.dcoef);
             expect(lbc).toBeGreaterThanOrEqual(1);
             expect(lbc).toBeLessThanOrEqual(10);
         }
@@ -33,5 +33,7 @@ test(
             { month: 0, dcoef: 100 },
             { month: 13, dcoef: 100 },
         ];
-        for (let p of params) { expect(lifeBaseCoef(p)).toBeNaN(); }
+        for (let p of params) {
+            expect(lifeBaseCoef(p.month, p.dcoef)).toBeNaN();
+        }
     });

@@ -33,12 +33,14 @@
     },
     "devDependencies": {
         "@types/jest": "^21.1.8",
+        "babel-plugin-root-import": "^5.1.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-3": "^6.24.1",
         "gulp": "^3.9.1",
         "gulp-babel": "^7.0.0",
         "gulp-jest": "^3.0.1",
         "gulp-plumber": "^1.1.0",
+        "gulp-wait": "^0.0.2",
         "jest": "^22.0.4"
     },
     "jest": {

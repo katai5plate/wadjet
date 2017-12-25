@@ -1,7 +1,7 @@
 'use strict';
 
-import tableXY from '../util/tableXY';
-import label from '../enum/potential';
+import tableXY from '~/dist/util/tableXY';
+import label from '~/dist/enum/potential';
 
 /** A table of potentials corresponding to month and coefficients. */
 const table = [
@@ -21,4 +21,4 @@ const table = [
  * Get potentials that corresponding to
  * the specified month and coefficients.
  */
-export default tableXY({ label, table });
+export default tableXY(label, table);

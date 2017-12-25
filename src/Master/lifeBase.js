@@ -1,7 +1,7 @@
 'use strict';
 
-import tableXY from '../util/tableXY';
-import label from '../enum/lifeBase';
+import tableXY from '~/dist/util/tableXY';
+import label from '~/dist/enum/lifeBase';
 
 /** A table of life base corresponding to month and coefficients. */
 const table = [
@@ -21,4 +21,4 @@ const table = [
  * Get life base that corresponding to
  * the specified month and coefficients.
  */
-export default tableXY({ label, table });
+export default tableXY(label, table);

@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var jest = require('gulp-jest').default;
 var plumber = require('gulp-plumber');
+var wait = require('gulp-wait');
 var jestrc = require('./package.json').jest;
 
 function babelrc(targets) {
@@ -14,7 +15,8 @@ function babelrc(targets) {
                     'targets': targets
                 }
             ]
-        ]
+        ],
+        'plugins': ['babel-plugin-root-import'],
     };
 }
 
@@ -49,6 +51,7 @@ gulp.task('jest', ['babelDist', 'babelTest'], function () {
     gulp
         .src('__tests__')
         .pipe(plumber())
+        .pipe(wait(1000))
         .pipe(jest(jestrc));
 });
 

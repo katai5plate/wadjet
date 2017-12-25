@@ -1,6 +1,6 @@
 'use strict';
 
-import tableXY from '../../dist/util/tableXY';
+import tableXY from '~/dist/util/tableXY';
 
 const label = ['Foo', 'Bar', 'Baz', 'Qux'];
 const table = [
@@ -14,7 +14,7 @@ test(
     () => expect(tableXY).toBeInstanceOf(Function));
 test(
     'Whether is result of `tableXY()` function object.',
-    () => expect(tableXY({ label, table })).toBeInstanceOf(Function));
+    () => expect(tableXY(label, table)).toBeInstanceOf(Function));
 test(
     'When a position are specified, it returns a potential.',
     () => {
@@ -24,18 +24,16 @@ test(
             { x: 0, y: 2, v: 'Baz' },
             { x: 3, y: 2, v: 'Bar' },
         ];
-        const accessor = tableXY({ label, table });
+        const accessor = tableXY(label, table);
         for (let { v, ...p } of params) {
-            expect(accessor(p)).toBe(v);
+            expect(accessor(p.x, p.y)).toBe(v);
         }
     });
 test(
     'When a position was not specified, it returns a (0, 0) value.',
     () => {
-        const accessor = tableXY({ label, table });
-        expect(accessor()).toEqual(accessor({ x: 0, y: 0 }));
-        expect(accessor({ x: 1 })).toEqual(accessor({ x: 1, y: 0 }));
-        expect(accessor({ y: 1 })).toEqual(accessor({ x: 0, y: 1 }));
+        const accessor = tableXY(label, table);
+        expect(accessor()).toEqual(accessor(0, 0));
     });
 test(
     'When a position are outside range, it returns a undefined.',
@@ -50,9 +48,9 @@ test(
             { x: -1, y: 3 },
             { x: 4, y: 3 },
         ];
-        const accessor = tableXY({ label, table });
+        const accessor = tableXY(label, table);
         for (let { v, ...p } of params) {
-            expect(accessor(p)).toBe('');
+            expect(accessor(p.x, p.y)).toBe('');
         }
     });
 test(
@@ -62,8 +60,8 @@ test(
             { x: 1, y: 2 },
             { x: 2, y: 2 },
         ];
-        const accessor = tableXY({ label, table });
+        const accessor = tableXY(label, table);
         for (let { v, ...p } of params) {
-            expect(accessor(p)).toBe('');
+            expect(accessor(p.x, p.y)).toBe('');
         }
     });
