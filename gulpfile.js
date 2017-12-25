@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var babel = require('gulp-babel');
+var debug = require('gulp-debug');
 var jest = require('gulp-jest').default;
 var plumber = require('gulp-plumber');
 var wait = require('gulp-wait');
@@ -34,6 +35,7 @@ gulp.task('babelDist', function () {
         .src('./src/**/*.js')
         .pipe(plumber())
         .pipe(babel(babelrcDist))
+        .pipe(debug())
         .pipe(gulp.dest('./dist'));
 });
 
