@@ -2,25 +2,24 @@ box: node
 
 build:
   steps:
-  - script:
-    name: Installing Dependencies.
-    code: yarn install
-  - script:
-    name: Test wadjet.
-    code: yarn test
-  - tcnksm/goveralls:
-    token: $COVERALLS_TOKEN
+    - script:
+      name: Installing Dependencies.
+      code: yarn install
+    - script:
+      name: Test wadjet.
+      code: yarn test
+
 deploy:
   steps:
-  - script:
-    name: Installing Expect. Because depend for non-interactive deploy.
-    code: apt-get update && apt-get install -y expect
-  - script:
-    name: Collect the app version number.
-    code: export APPVER=`node -e "process.stdout.write(require('./package.json').version)"`
-  - github-create-release:
-    token: ${GITHUB_TOKEN}
-    tag: "v${APPVER}"
-  - script:
-    name: Publish wadjet.
-    code: ./publish.exp ${NPM_USER} ${NPM_EMAIL} ${NPM_PASS}
+    - script:
+      name: Installing Expect. Because depend for non-interactive deploy.
+      code: apt-get update && apt-get install -y expect
+    - script:
+      name: Collect the app version number.
+      code: export APPVER=`node -e "process.stdout.write(require('./package.json').version)"`
+    - github-create-release:
+      token: ${GITHUB_TOKEN}
+      tag: "v${APPVER}"
+    - script:
+      name: Publish wadjet.
+      code: ./publish.exp ${NPM_USER} ${NPM_EMAIL} ${NPM_PASS}
