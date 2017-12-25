@@ -29,12 +29,14 @@
         "start": "gulp",
         "gulp": "gulp",
         "prepublish": "gulp babelDistVerbose babelTestVerbose",
-        "test": "jest"
+        "test": "jest",
+        "test_coverall": "jest && cat ./coverage/lcov.info | coveralls"
     },
     "devDependencies": {
         "@types/jest": "^21.1.8",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-3": "^6.24.1",
+        "coveralls": "^3.0.0",
         "gulp": "^3.9.1",
         "gulp-babel": "^7.0.0",
         "gulp-debug": "^3.1.0",
@@ -44,6 +46,7 @@
         "jest": "^22.0.4"
     },
     "jest": {
+        "collectCoverage": true,
         "verbose": false
     }
 }
