@@ -1,6 +1,6 @@
 'use strict';
 
-import lifeBase from '~/dist/master/lifeBase';
+import lifeBase from '~/dist/master/lifeBase.js';
 
 test(
     'Whether is `lifeBase` function object.',
