@@ -1,4 +1,6 @@
 [![wercker status](https://app.wercker.com/status/ad70bac2941458a3fd3f1ed329ff05ee/s/master "wercker status")](https://app.wercker.com/project/byKey/ad70bac2941458a3fd3f1ed329ff05ee)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+[![npm version](https://badge.fury.io/js/wadjet.svg)](https://badge.fury.io/js/wadjet)
 
 # 👁️‍🗨️ Wadjet
 

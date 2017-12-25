@@ -29,7 +29,7 @@
         "start": "gulp",
         "gulp": "gulp",
         "prepublish": "gulp babelDistVerbose babelTestVerbose",
-        "test": "gulp jest"
+        "test": "jest"
     },
     "devDependencies": {
         "@types/jest": "^21.1.8",
