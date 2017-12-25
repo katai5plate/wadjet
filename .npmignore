@@ -3,5 +3,7 @@
 __test__
 gulpfile.js
 node_modules
+publish.exp
 src
 test
+wercker.yml

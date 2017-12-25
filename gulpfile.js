@@ -2,8 +2,10 @@
 
 var gulp = require('gulp');
 var babel = require('gulp-babel');
+var debug = require('gulp-debug');
 var jest = require('gulp-jest').default;
 var plumber = require('gulp-plumber');
+var wait = require('gulp-wait');
 var jestrc = require('./package.json').jest;
 
 function babelrc(targets) {
@@ -28,20 +30,28 @@ var babelrcDist =
 
 var babelrcTest = babelrc({ 'node': 'current' });
 
-gulp.task('babelDist', function () {
-    gulp
-        .src('./src/**/*.js')
+function babelPipe(from, to, rc) {
+    return gulp
+        .src('./' + from + '/**/*.js')
         .pipe(plumber())
-        .pipe(babel(babelrcDist))
-        .pipe(gulp.dest('./dist'));
+        .pipe(babel(rc))
+        .pipe(gulp.dest('./' + to));
+}
+
+gulp.task('babelDist', function () {
+    babelPipe('src', 'dist', babelrcDist);
+});
+
+gulp.task('babelDistVerbose', function () {
+    babelPipe('src', 'dist', babelrcDist).pipe(debug());
 });
 
 gulp.task('babelTest', function () {
-    gulp
-        .src('./test/**/*.js')
-        .pipe(plumber())
-        .pipe(babel(babelrcTest))
-        .pipe(gulp.dest('./__tests__'));
+    babelPipe('test', '__tests__', babelrcTest);
+});
+
+gulp.task('babelTestVerbose', function () {
+    babelPipe('test', '__tests__', babelrcTest).pipe(debug());
 });
 
 gulp.task('jest', ['babelDist', 'babelTest'], function () {
@@ -49,6 +59,9 @@ gulp.task('jest', ['babelDist', 'babelTest'], function () {
     gulp
         .src('__tests__')
         .pipe(plumber())
+        // If task does not wait here, tests may start
+        // before the export finishes and it may fail.
+        .pipe(wait(1000))
         .pipe(jest(jestrc));
 });
 
