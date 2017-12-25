@@ -183,29 +183,24 @@ const record = [
 ];
 
 /**
- * Iterator function for generating monthly coefficient and
- * year / month information pair.
- */
-function* iter() {
-    let date = new Date('1873-01-01');
-    for (let dcof of record) {
-        date.setMonth(date.getMonth() + 1);
-        yield {
-            month: date.getMonth() + 1,
-            year: date.getFullYear(),
-            dcof,
-        };
-    }
-}
-
-/**
  * Pairs of _year / month_ information and _monthly coefficient_.
  * 
  * Since it can be supposed that often specified on dates
  * after the late 20th century, the list is reversed order
  * for performance improvement.
  */
-const table = [...iter()].reverse();
+const table =
+    (date =>
+        record.map(
+            dcof => {
+                date.setMonth(date.getMonth() + 1);
+                return {
+                    month: date.getMonth() + 1,
+                    year: date.getFullYear(),
+                    dcof,
+                };
+            }).reverse()
+    )(new Date('1873-01-01'));
 
 /**
  * Search monthly coefficient corresponding to the specified date.
