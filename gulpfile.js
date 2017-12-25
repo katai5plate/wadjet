@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var jest = require('gulp-jest').default;
 var plumber = require('gulp-plumber');
+var wait = require('gulp-wait');
 var jestrc = require('./package.json').jest;
 
 function babelrc(targets) {
@@ -49,6 +50,9 @@ gulp.task('jest', ['babelDist', 'babelTest'], function () {
     gulp
         .src('__tests__')
         .pipe(plumber())
+        // If task does not wait here, tests may start
+        // before the export finishes and it may fail.
+        .pipe(wait(1000))
         .pipe(jest(jestrc));
 });
 
