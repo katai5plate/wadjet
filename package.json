@@ -28,8 +28,8 @@
     "scripts": {
         "start": "gulp",
         "gulp": "gulp",
-        "prepublish": "gulp babelDist babelTest",
-        "test": "jest"
+        "prepublish": "gulp babelDistVerbose babelTestVerbose",
+        "test": "gulp jest"
     },
     "devDependencies": {
         "@types/jest": "^21.1.8",

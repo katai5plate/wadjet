@@ -30,21 +30,28 @@ var babelrcDist =
 
 var babelrcTest = babelrc({ 'node': 'current' });
 
-gulp.task('babelDist', function () {
-    gulp
-        .src('./src/**/*.js')
+function babelPipe(from, to, rc) {
+    return gulp
+        .src('./' + from + '/**/*.js')
         .pipe(plumber())
-        .pipe(babel(babelrcDist))
-        .pipe(debug())
-        .pipe(gulp.dest('./dist'));
+        .pipe(babel(rc))
+        .pipe(gulp.dest('./' + to));
+}
+
+gulp.task('babelDist', function () {
+    babelPipe('src', 'dist', babelrcDist);
+});
+
+gulp.task('babelDistVerbose', function () {
+    babelPipe('src', 'dist', babelrcDist).pipe(debug());
 });
 
 gulp.task('babelTest', function () {
-    gulp
-        .src('./test/**/*.js')
-        .pipe(plumber())
-        .pipe(babel(babelrcTest))
-        .pipe(gulp.dest('./__tests__'));
+    babelPipe('test', '__tests__', babelrcTest);
+});
+
+gulp.task('babelTestVerbose', function () {
+    babelPipe('test', '__tests__', babelrcTest).pipe(debug());
 });
 
 gulp.task('jest', ['babelDist', 'babelTest'], function () {
