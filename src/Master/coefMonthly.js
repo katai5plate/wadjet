@@ -218,11 +218,10 @@ const table = [...iter()].reverse();
  * Ignoring that information other than year / month.
  * @returns {number} Monthly coefficient.
  */
-module.exports =
-    date => {
-        const y = date.getFullYear();
-        const m = date.getMonth() + 1;
-        const result =
-            table.find(({ month, year }) => month === m && year === y);
-        return result ? result.dcof : Number.NaN;
-    };
+export default (date = new Date()) => {
+    const y = date.getFullYear();
+    const m = date.getMonth() + 1;
+    const result =
+        table.find(({ month, year }) => month === m && year === y);
+    return result ? result.dcof : Number.NaN;
+};

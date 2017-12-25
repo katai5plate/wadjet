@@ -1,6 +1,6 @@
 'use strict';
 
-const lifeBase = require('../../src/master/lifeBase');
+import lifeBase from '../../dist/master/lifeBase';
 
 test(
     'Whether is `lifeBase` function object.',

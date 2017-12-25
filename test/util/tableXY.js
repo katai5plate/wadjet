@@ -1,6 +1,6 @@
 'use strict';
 
-const tableXY = require('../../src/util/tableXY');
+import tableXY from '../../dist/util/tableXY';
 
 const label = ['Foo', 'Bar', 'Baz', 'Qux'];
 const table = [

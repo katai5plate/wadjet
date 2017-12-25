@@ -1,7 +1,7 @@
 'use strict';
 
 /** Natures values list. */
-module.exports = [
+export default [
     'A000',
     'A024',
     'A100',

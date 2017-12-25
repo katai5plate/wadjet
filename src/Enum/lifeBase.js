@@ -1,7 +1,7 @@
 'use strict';
 
 /** Life base values list. */
-module.exports = [
+export default [
     'Application',
     'Association',
     'Development',

@@ -1,7 +1,7 @@
 'use strict';
 
-const naturesDesc = require('../../src/master/naturesDesc');
-const natures = require('../../src/enum/natures');
+import naturesDesc from '../../dist/master/naturesDesc';
+import natures from '../../dist/enum/natures';
 
 test(
     'Whether is `naturesDesc` general object.',

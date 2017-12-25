@@ -1,6 +1,7 @@
 'use strict';
 
-const tableXY = require('../util/tableXY');
+import tableXY from '../util/tableXY';
+import label from '../enum/potential';
 
 /** A table of potentials corresponding to month and coefficients. */
 const table = [
@@ -20,4 +21,4 @@ const table = [
  * Get potentials that corresponding to
  * the specified month and coefficients.
  */
-module.exports = tableXY({ label: require('../enum/potential'), table });
+export default tableXY({ label, table });
