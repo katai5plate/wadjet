@@ -1,7 +1,7 @@
 'use strict';
 
-import tableXY from './../util/tableXY';
-import label from './../enum/lifeBase';
+import tableXY from '../util/tableXY';
+import label from '../enum/lifeBase';
 
 /** A table of life base corresponding to month and coefficients. */
 const table = [

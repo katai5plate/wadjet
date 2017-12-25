@@ -1,6 +1,6 @@
 'use strict';
 
-import wadjet from './../dist';
+import wadjet from '../dist';
 
 test('is Object', () => expect(wadjet).toBeInstanceOf(Object));
 test('is Included APIs', () => {

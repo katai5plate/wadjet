@@ -1,11 +1,11 @@
 'use strict';
 
-import coefMonthly from './../master/coefMonthly';
-import lifeBase from './../master/lifeBase';
-import lifeBaseCoef from './../master/lifeBaseCoef';
-import natures from './../master/natures';
-import naturesDesc from './../master/naturesDesc';
-import potential from './../master/potential';
+import coefMonthly from '../master/coefMonthly';
+import lifeBase from '../master/lifeBase';
+import lifeBaseCoef from '../master/lifeBaseCoef';
+import natures from '../master/natures';
+import naturesDesc from '../master/naturesDesc';
+import potential from '../master/potential';
 
 /**
  * Create to year, month, date and coefficient of date from input.

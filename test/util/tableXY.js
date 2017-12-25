@@ -1,6 +1,6 @@
 'use strict';
 
-import tableXY from './../../dist/util/tableXY';
+import tableXY from '../../dist/util/tableXY';
 
 const label = ['Foo', 'Bar', 'Baz', 'Qux'];
 const table = [
