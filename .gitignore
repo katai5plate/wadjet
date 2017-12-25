@@ -62,5 +62,6 @@ typings/
 Thumbs.db
 
 # build
+.wercker
 __tests__
 dist

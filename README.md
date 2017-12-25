@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/ad70bac2941458a3fd3f1ed329ff05ee/s/master "wercker status")](https://app.wercker.com/project/byKey/ad70bac2941458a3fd3f1ed329ff05ee)
+
 # 👁️‍🗨️ Wadjet
 
 🔮🎂 The __your birth date__ is based on statistical psychology and will __expose your personality__.

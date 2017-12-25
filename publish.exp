@@ -1,0 +1,33 @@
+#!/usr/bin/expect
+
+set NPM_USER [lindex $argv 0]
+set NPM_EMAIL [lindex $argv 1]
+set NPM_PASS [lindex $argv 2]
+set PROMPT "\[#$%>\]"
+set timeout 3
+
+spawn yarn publish
+expect {
+    "New version" {
+        send "\n"
+        exp_continue
+    }
+    "npm username" {
+        send "${NPM_USER}\n"
+        exp_continue
+    }
+    "npm email" {
+        send "${NPM_EMAIL}\n"
+        exp_continue
+    }
+    "npm password" {
+        send "${NPM_PASS}\n"
+    }
+}
+
+expect {
+    -glob "${PROMPT}" {
+        interact
+        exit 0
+    }
+}
