@@ -1,6 +1,6 @@
 'use strict';
 
-import potential from '~/dist/master/potential';
+import potential from '../../dist/master/potential';
 
 test(
     'Whether is `potential` function object.',
@@ -15,13 +15,15 @@ test(
             { x: 9, y: 9 },
         ];
         for (let p of params) {
-            expect(potential(p.x, p.y)).toMatch(/^[CEFIN][io]$/);
+            expect(potential(p)).toMatch(/^[CEFIN][io]$/);
         }
     });
 test(
     'When a position was not specified, it returns a (0, 0) value.',
     () => {
-        expect(potential()).toEqual(potential(0, 0));
+        expect(potential()).toEqual(potential({ x: 0, y: 0 }));
+        expect(potential({ x: 5 })).toEqual(potential({ x: 5, y: 0 }));
+        expect(potential({ y: 5 })).toEqual(potential({ x: 0, y: 5 }));
     });
 test(
     'When a position are outside range, it returns a falsy.',
@@ -36,5 +38,5 @@ test(
             { x: -1, y: 10 },
             { x: 10, y: 10 },
         ];
-        for (let p of params) { expect(potential(p.x, p.y)).toBe(''); }
+        for (let p of params) { expect(potential(p)).toBe(''); }
     });

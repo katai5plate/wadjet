@@ -407,12 +407,6 @@ babel-plugin-jest-hoist@^22.0.3:
   version "22.0.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-22.0.3.tgz#62cde5fe962fd41ae89c119f481ca5cd7dd48bb4"
 
-babel-plugin-root-import@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-root-import/-/babel-plugin-root-import-5.1.0.tgz#80ea1cd5945b463a5e3f7e204a69478c573e328c"
-  dependencies:
-    slash "^1.0.0"
-
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
@@ -1735,12 +1729,6 @@ gulp-util@^3, gulp-util@^3.0.0:
     through2 "^2.0.0"
     vinyl "^0.5.0"
 
-gulp-wait@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/gulp-wait/-/gulp-wait-0.0.2.tgz#ecebff4446e1a0d537cb1dc773dbd4581d17fb2d"
-  dependencies:
-    map-stream "0.0.4"
-
 gulp@^3.9.1:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/gulp/-/gulp-3.9.1.tgz#571ce45928dd40af6514fc4011866016c13845b4"
@@ -2783,10 +2771,6 @@ makeerror@1.0.x:
 map-cache@^0.2.0, map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
-
-map-stream@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.0.4.tgz#5ec6de90213ef6c7b2eb9367e9ade8da4efdb68b"
 
 map-visit@^1.0.0:
   version "1.0.0"

@@ -1,7 +1,7 @@
 'use strict';
 
-import naturesDesc from '~/dist/master/naturesDesc';
-import natures from '~/dist/enum/natures';
+import naturesDesc from '../../dist/master/naturesDesc';
+import natures from '../../dist/enum/natures';
 
 test(
     'Whether is `naturesDesc` general object.',

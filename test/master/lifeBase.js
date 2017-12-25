@@ -1,6 +1,6 @@
 'use strict';
 
-import lifeBase from '~/dist/master/lifeBase';
+import lifeBase from '../../dist/master/lifeBase';
 
 test(
     'Whether is `lifeBase` function object.',
@@ -15,13 +15,15 @@ test(
             { x: 9, y: 9 },
         ];
         for (let p of params) {
-            expect(lifeBase(p.x, p.y)).toMatch(/^[ADEFIOQS][a-z]+/);
+            expect(lifeBase(p)).toMatch(/^[ADEFIOQS][a-z]+/);
         }
     });
 test(
     'When a position was not specified, it returns a (0, 0) value.',
     () => {
-        expect(lifeBase()).toEqual(lifeBase(0, 0));
+        expect(lifeBase()).toEqual(lifeBase({ x: 0, y: 0 }));
+        expect(lifeBase({ x: 5 })).toEqual(lifeBase({ x: 5, y: 0 }));
+        expect(lifeBase({ y: 5 })).toEqual(lifeBase({ x: 0, y: 5 }));
     });
 test(
     'When a position are outside range, it returns a falsy.',
@@ -36,5 +38,5 @@ test(
             { x: -1, y: 10 },
             { x: 10, y: 10 },
         ];
-        for (let p of params) { expect(lifeBase(p.x, p.y)).toBe(''); }
+        for (let p of params) { expect(lifeBase(p)).toBe(''); }
     });

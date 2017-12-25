@@ -1,7 +1,7 @@
 'use strict';
 
-import tableXY from '~/dist/util/tableXY';
-import label from '~/dist/enum/natures';
+import tableXY from '../util/tableXY';
+import label from '../enum/natures';
 
 /** A table of natures corresponding to month and coefficients. */
 const table = [
@@ -21,4 +21,4 @@ const table = [
  * Get natures that corresponding to
  * the specified month and coefficients.
  */
-export default tableXY(label, table);
+export default tableXY({ label, table });

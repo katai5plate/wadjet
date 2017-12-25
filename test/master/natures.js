@@ -1,6 +1,6 @@
 'use strict';
 
-import natures from '~/dist/master/natures';
+import natures from '../../dist/master/natures';
 
 test(
     'Whether is `natures` function object.',
@@ -15,13 +15,15 @@ test(
             { x: 11, y: 9 },
         ];
         for (let p of params) {
-            expect(natures(p.x, p.y)).toMatch(/^[AEH]\d{3}/);
+            expect(natures(p)).toMatch(/^[AEH]\d{3}/);
         }
     });
 test(
     'When a position was not specified, it returns a (0, 0) value.',
     () => {
-        expect(natures()).toEqual(natures(0, 0));
+        expect(natures()).toEqual(natures({ x: 0, y: 0 }));
+        expect(natures({ x: 5 })).toEqual(natures({ x: 5, y: 0 }));
+        expect(natures({ y: 5 })).toEqual(natures({ x: 0, y: 5 }));
     });
 test(
     'When a position are outside range, it returns a falsy.',
@@ -36,5 +38,5 @@ test(
             { x: -1, y: 10 },
             { x: 12, y: 10 },
         ];
-        for (let p of params) { expect(natures(p.x, p.y)).toBe(''); }
+        for (let p of params) { expect(natures(p)).toBe(''); }
     });

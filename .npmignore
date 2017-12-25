@@ -1,8 +1,6 @@
-.editorconfig
 .jsbeautifyrc
 .vscode
 __test__
-jsconfig.json
 gulpfile.js
 node_modules
 publish.exp

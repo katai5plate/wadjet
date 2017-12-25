@@ -1,6 +1,6 @@
 'use strict';
 
-import natureMap from '~/dist/util/natureMap';
+import natureMap from '../util/natureMap';
 
 /** Good business formation level table. */
 export default natureMap([

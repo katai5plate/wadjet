@@ -1,11 +1,11 @@
 'use strict';
 
-import coefMonthly from '~/dist/master/coefMonthly';
-import lifeBase from '~/dist/master/lifeBase';
-import lifeBaseCoef from '~/dist/master/lifeBaseCoef';
-import natures from '~/dist/master/natures';
-import naturesDesc from '~/dist/master/naturesDesc';
-import potential from '~/dist/master/potential';
+import coefMonthly from '../master/coefMonthly';
+import lifeBase from '../master/lifeBase';
+import lifeBaseCoef from '../master/lifeBaseCoef';
+import natures from '../master/natures';
+import naturesDesc from '../master/naturesDesc';
+import potential from '../master/potential';
 
 /**
  * Create to year, month, date and coefficient of date from input.
@@ -31,9 +31,9 @@ const ymd =
 const naturePotential =
     cycle =>
     (code => ({ mn: code(natures, 12), mp: code(potential, 10) }))(
-        (func = ((x = 0, y = 0) => `${''}`), limit = 0) =>
+        (func = (({ x = 0, y = 0 }) => `${''}`), limit = 0) =>
         (v = 0) =>
-        func((v % limit || limit) - 1, cycle));
+        func({ x: (v % limit || limit) - 1, y: cycle }));
 
 /**
  * Get personality from birthday.
@@ -51,14 +51,14 @@ export default (birth = new Date()) => {
     const ge = date >= dcoef;
     const outer = (month - (!ge >> 0) || 12) + 1;
     const ymb = year - (month === 2 && ge ? early : 0);
-    const lbc = lifeBaseCoef(month, date - dcoef) - 1;
+    const lbc = lifeBaseCoef({ month, dcoef: date - dcoef }) - 1;
     const cycle = (inner + 6) % 10;
     const { mn, mp } = naturePotential(cycle);
     return {
         inner: { ...naturesDesc(mn(inner + yh * 4 + icoef * 6)) },
         outer: { ...naturesDesc(mn(outer)) },
         cycle: cycle || 10,
-        lifeBase: lifeBase(lbc, cycle),
+        lifeBase: lifeBase({ x: lbc, y: cycle }),
         potential: `${mp(ymb + 7)}-${mp(year * 2 + outer + 2)}`,
         workstyle: mn(ymb + 9),
     };

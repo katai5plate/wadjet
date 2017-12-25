@@ -23,6 +23,6 @@ const table = [
 ];
 
 /** Get life-base factor from month, day and coefficient. */
-export default (month = 1, dcoef = 0) =>
+export default ({ month = 1, dcoef = 0 } = {}) =>
 ((r, d) => !r ? Number.NaN : r.find(v => d < v.t).v)(
     table[month - 1], dcoef);
