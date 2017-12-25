@@ -16,9 +16,7 @@ deploy:
       code: apt-get update && apt-get install -y expect
     - script:
       name: Collect the app version number.
-      code: >
-        export APPVER=
-        `node -e "process.stdout.write(require('./package.json').version)"`
+      code: export APPVER=`node -e "process.stdout.write(require('./package.json').version)"`
     - github-create-release:
       token: ${GITHUB_TOKEN}
       tag: "v${APPVER}"
