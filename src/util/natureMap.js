@@ -1,14 +1,12 @@
 'use strict';
 
-/** Natures values list. */
-const natures = require('../enum/natures');
+import natures from '../enum/natures';
 
 /**
  * Generate a nature map by specified table.
  * @param {number[][]} table Values table.
  */
-module.exports =
-    table =>
+export default table =>
     table
     .map(
         (r, i) => ({

@@ -1,6 +1,7 @@
 'use strict';
 
-const tableXY = require('../util/tableXY');
+import tableXY from '../util/tableXY';
+import label from '../enum/lifeBase';
 
 /** A table of life base corresponding to month and coefficients. */
 const table = [
@@ -20,4 +21,4 @@ const table = [
  * Get life base that corresponding to
  * the specified month and coefficients.
  */
-module.exports = tableXY({ label: require('../enum/lifeBase'), table });
+export default tableXY({ label, table });

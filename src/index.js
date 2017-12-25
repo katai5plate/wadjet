@@ -1,6 +1,6 @@
 'use strict';
 
-const calc = require('./util/calculator');
-const detail = require('./master/naturesDesc');
+import calc from './util/calculator';
+import detail from './master/naturesDesc';
 
-module.exports = Object.freeze({ calc, detail });
+export default Object.freeze({ calc, detail });

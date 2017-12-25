@@ -1,8 +1,12 @@
 {
     "name": "wadjet",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "description": "The your birth date is based on statistical psychology and will expose your personality. This package as a mocule does its calculations.",
-    "author": "danmaq (Shuhei Nomura)",
+    "author": {
+        "name": "Shuhei Nomura (danmaq)",
+        "email": "info@danmaq.com",
+        "url": "https://danmaq.com"
+    },
     "license": "MIT",
     "keywords": [
         "divination",
@@ -17,12 +21,24 @@
         "url": "https://github.com/danmaq/wadjet/issues"
     },
     "homepage": "https://github.com/danmaq/wadjet",
-    "main": "src/index.js",
+    "main": "dist/index.js",
+    "engines": {
+        "node": ">=4.8.3"
+    },
     "scripts": {
+        "start": "gulp",
+        "gulp": "gulp",
+        "prepublish": "gulp babelDist",
         "test": "jest"
     },
     "devDependencies": {
         "@types/jest": "^21.1.8",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-stage-3": "^6.24.1",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^7.0.0",
+        "gulp-jest": "^3.0.1",
+        "gulp-plumber": "^1.1.0",
         "jest": "^22.0.4"
     },
     "jest": {

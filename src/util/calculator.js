@@ -1,11 +1,11 @@
 'use strict';
 
-const coefMonthly = require('../master/coefMonthly');
-const lifeBase = require('../master/lifeBase');
-const lifeBaseCoef = require('../master/lifeBaseCoef');
-const natures = require('../master/natures');
-const naturesDesc = require('../master/naturesDesc');
-const potential = require('../master/potential');
+import coefMonthly from '../master/coefMonthly';
+import lifeBase from '../master/lifeBase';
+import lifeBaseCoef from '../master/lifeBaseCoef';
+import natures from '../master/natures';
+import naturesDesc from '../master/naturesDesc';
+import potential from '../master/potential';
 
 /**
  * Create to year, month, date and coefficient of date from input.
@@ -40,27 +40,26 @@ const naturePotential =
  * @param {Date|string} birth Birthday.
  * It can be set from 1873-02-01 to 2050-12-31.
  */
-module.exports =
-    (birth = new Date()) => {
-        const { year, month, date, dcoef } = ymd(birth);
-        const yh = year * 0.01 >> 0;
-        const early = (month <= 2) >> 0;
-        const icoef = month + early * 12;
-        const inner =
-            ([5.25 * (year % 100 - early), 0.6 * (icoef + 1), 4.25 * yh]
-                .reduce((p, c) => p + (c >> 0), date + 1));
-        const ge = date >= dcoef;
-        const outer = (month - (!ge >> 0) || 12) + 1;
-        const ymb = year - (month === 2 && ge ? early : 0);
-        const lbc = lifeBaseCoef({ month, dcoef: date - dcoef }) - 1;
-        const cycle = (inner + 6) % 10;
-        const { mn, mp } = naturePotential(cycle);
-        return {
-            inner: naturesDesc(mn(inner + yh * 4 + icoef * 6)),
-            outer: naturesDesc(mn(outer)),
-            cycle: cycle || 10,
-            lifeBase: lifeBase({ x: lbc, y: cycle }),
-            potential: `${mp(ymb + 7)}-${mp(year * 2 + outer + 2)}`,
-            workstyle: mn(ymb + 9),
-        };
+export default (birth = new Date()) => {
+    const { year, month, date, dcoef } = ymd(birth);
+    const yh = year * 0.01 >> 0;
+    const early = (month <= 2) >> 0;
+    const icoef = month + early * 12;
+    const inner =
+        ([5.25 * (year % 100 - early), 0.6 * (icoef + 1), 4.25 * yh]
+            .reduce((p, c) => p + (c >> 0), date + 1));
+    const ge = date >= dcoef;
+    const outer = (month - (!ge >> 0) || 12) + 1;
+    const ymb = year - (month === 2 && ge ? early : 0);
+    const lbc = lifeBaseCoef({ month, dcoef: date - dcoef }) - 1;
+    const cycle = (inner + 6) % 10;
+    const { mn, mp } = naturePotential(cycle);
+    return {
+        inner: { ...naturesDesc(mn(inner + yh * 4 + icoef * 6)) },
+        outer: { ...naturesDesc(mn(outer)) },
+        cycle: cycle || 10,
+        lifeBase: lifeBase({ x: lbc, y: cycle }),
+        potential: `${mp(ymb + 7)}-${mp(year * 2 + outer + 2)}`,
+        workstyle: mn(ymb + 9),
     };
+};
