@@ -1,6 +1,6 @@
 'use strict';
 
-import coefMonthly from '../../dist/master/coefMonthly';
+import coefMonthly from './../../dist/master/coefMonthly';
 
 test(
     'Whether is `coefMonthly` function object.',

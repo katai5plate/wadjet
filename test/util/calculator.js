@@ -1,6 +1,6 @@
 'use strict';
 
-import calculator from '../../dist/util/calculator';
+import calculator from './../../dist/util/calculator';
 
 test('is Function', () => expect(calculator).toBeInstanceOf(Function));
 test('Be truthy', () => expect(calculator()).toBeTruthy());

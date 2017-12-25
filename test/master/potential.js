@@ -1,6 +1,6 @@
 'use strict';
 
-import potential from '../../dist/master/potential';
+import potential from './../../dist/master/potential';
 
 test(
     'Whether is `potential` function object.',

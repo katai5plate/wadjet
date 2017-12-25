@@ -1,6 +1,6 @@
 'use strict';
 
-import lifeBaseCoef from '../../dist/master/lifeBaseCoef';
+import lifeBaseCoef from './../../dist/master/lifeBaseCoef';
 
 test(
     'Whether is `lifeBaseCoef` function object.',

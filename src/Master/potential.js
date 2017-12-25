@@ -1,7 +1,7 @@
 'use strict';
 
-import tableXY from '../util/tableXY';
-import label from '../enum/potential';
+import tableXY from './../util/tableXY';
+import label from './../enum/potential';
 
 /** A table of potentials corresponding to month and coefficients. */
 const table = [

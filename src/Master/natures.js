@@ -1,7 +1,7 @@
 'use strict';
 
-import tableXY from '../util/tableXY';
-import label from '../enum/natures';
+import tableXY from './../util/tableXY';
+import label from './../enum/natures';
 
 /** A table of natures corresponding to month and coefficients. */
 const table = [
