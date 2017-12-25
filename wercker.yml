@@ -6,6 +6,12 @@ build:
       name: Installing Dependencies.
       code: yarn install
     - script:
+      name: Show enviromnent.
+      code: |
+        node -v
+        ls -R __tests__
+        ls -R dist
+    - script:
       name: Test wadjet.
       code: yarn test
 
