@@ -87,12 +87,12 @@ test('situation A', () => {
     expect(result).toEqual(expected);
 });
 test('situation B', () => {
-    const result = calculator('1981-10-12');
+    const result = calculator('1956-02-26');
     const expected = {
         cycle: 10,
-        lifeBase: 'Application',
-        potential: 'Co-Ni',
-        workstyle: 'E125',
+        lifeBase: 'Development',
+        potential: 'Eo-Ci',
+        workstyle: 'H025',
         inner: {
             communication: 'Fix',
             management: 'Care',
@@ -131,6 +131,52 @@ test('situation B', () => {
         },
         outer: {
             communication: 'Flex',
+            management: 'Hope',
+            motivation: 'Power',
+            nature: 'A888',
+            position: 'Quick',
+            response: 'Action',
+            business: {
+                A000: 0,
+                A024: 1,
+                A100: 2,
+                A888: 2,
+                E001: 1,
+                E125: 1,
+                E555: 0,
+                E919: 0,
+                H012: 3,
+                H025: 1,
+                H108: 2,
+                H789: 0,
+            },
+            romance: {
+                A000: 1,
+                A024: 3,
+                A100: 1,
+                A888: 0,
+                E001: 0,
+                E125: 0,
+                E555: 0,
+                E919: 1,
+                H012: 0,
+                H025: 0,
+                H108: 3,
+                H789: 2,
+            },
+        }
+    };
+    expect(result).toEqual(expected);
+});
+test('situation C', () => {
+    const result = calculator('1993-01-29');
+    const expected = {
+        cycle: 7,
+        lifeBase: 'Quest',
+        potential: 'Ei-Ei',
+        workstyle: 'E555',
+        inner: {
+            communication: 'Flex',
             management: 'Care',
             motivation: 'Safety',
             nature: 'H789',
@@ -164,7 +210,50 @@ test('situation B', () => {
                 H108: 1,
                 H789: 2,
             },
+        },
+        outer: {
+            communication: 'Fix',
+            management: 'Care',
+            motivation: 'SkillUp',
+            nature: 'H025',
+            position: 'Adjust',
+            response: 'Action',
+            business: {
+                A000: 0,
+                A024: 3,
+                A100: 0,
+                A888: 0,
+                E001: 2,
+                E125: 0,
+                E555: 1,
+                E919: 0,
+                H012: 2,
+                H025: 3,
+                H108: 2,
+                H789: 0,
+            },
+            romance: {
+                A000: 0,
+                A024: 3,
+                A100: 0,
+                A888: 0,
+                E001: 3,
+                E125: 0,
+                E555: 2,
+                E919: 0,
+                H012: 0,
+                H025: 2,
+                H108: 2,
+                H789: 3,
+            },
         }
     };
     expect(result).toEqual(expected);
+});
+test('Out of range', () => {
+    const result = calculator('1981-10-12');
+    expect(() => calculator('1873-01-31')).toThrowError();
+    expect(() => calculator('2051-01-01')).toThrowError();
+    expect(calculator('1873-02-01')).toBeTruthy();
+    expect(calculator('2050-12-31')).toBeTruthy();
 });
