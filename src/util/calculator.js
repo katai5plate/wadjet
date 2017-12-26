@@ -29,11 +29,13 @@ const ymd =
  * @param {number} cycle cycle coef.
  */
 const naturePotential =
-    cycle =>
-    (code => ({ mn: code(natures, 12), mp: code(potential, 10) }))(
-        (func = (({ x = 0, y = 0 }) => `${''}`), limit = 0) =>
-        (v = 0) =>
-        func({ x: (v % limit || limit) - 1, y: cycle }));
+    cycle => {
+        const code =
+            (func, limit) =>
+            /** @param {number} v */
+            v => `${func({ x: (v % limit || limit) - 1, y: cycle })}`;
+        return { mn: code(natures, 12), mp: code(potential, 10) };
+    };
 
 /**
  * Get personality from birthday.
@@ -51,7 +53,7 @@ export default (birth = new Date()) => {
     const ge = date >= dcoef;
     const outer = (month - (!ge >> 0) || 12) + 1;
     const ymb = year - (month === 2 && ge ? early : 0);
-    const lbc = lifeBaseCoef({ month, dcoef: date - dcoef }) - 1;
+    const lbc = lifeBaseCoef(month, date - dcoef) - 1;
     const cycle = (inner + 6) % 10;
     const { mn, mp } = naturePotential(cycle);
     return {

@@ -204,19 +204,15 @@ const table =
 
 /**
  * Search monthly coefficient corresponding to the specified date.
- *
- * Returns an `undefined` when it did not exist.
- * 
  * @param {Date} date Date information.
- *
- * It can be set from 1873-02-01 to 2050-12-31.
- * Ignoring that information other than year / month.
- * @returns {number} Monthly coefficient.
  */
-export default (date = new Date()) => {
-    const y = date.getFullYear();
-    const m = date.getMonth() + 1;
-    const result =
-        table.find(({ month, year }) => month === m && year === y);
-    return result ? result.dcof : Number.NaN;
-};
+const coefMonthly =
+    date => {
+        const y = date.getFullYear();
+        const m = date.getMonth() + 1;
+        const result =
+            table.find(({ month, year }) => month === m && year === y);
+        return result ? result.dcof : Number.NaN;
+    };
+
+export default coefMonthly;
