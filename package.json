@@ -1,6 +1,6 @@
 {
     "name": "wadjet",
-    "version": "3.0.2",
+    "version": "3.1.0",
     "description": "The your birth date is based on statistical psychology and will expose your personality. This package as a mocule does its calculations.",
     "author": {
         "name": "Shuhei Nomura (danmaq)",
@@ -29,11 +29,12 @@
         "start": "gulp",
         "gulp": "gulp",
         "prepublish": "gulp babelDistVerbose babelTestVerbose",
-        "test": "jest",
-        "test_coverall": "jest && cat ./coverage/lcov.info | coveralls"
+        "test": "jest --coverage",
+        "test_coverall": "jest --coverage && cat ./coverage/lcov.info | coveralls"
     },
     "devDependencies": {
         "@types/jest": "^21.1.8",
+        "babel-core": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-3": "^6.24.1",
         "coveralls": "^3.0.0",
@@ -43,10 +44,9 @@
         "gulp-jest": "^3.0.1",
         "gulp-plumber": "^1.1.0",
         "gulp-wait": "^0.0.2",
-        "jest": "^22.0.4"
+        "jest-cli": "^22.0.4"
     },
     "jest": {
-        "collectCoverage": true,
         "verbose": false
     }
 }
