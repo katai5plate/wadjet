@@ -1,11 +1,13 @@
 'use strict';
 
-const strArray = [''];
-const numArrayArray = [
-    [0]
-];
+/**
+ * Get an accessor to the table.
+ * @param {string[]} label Label.
+ * @param {number[][]} table Table.
+ */
+const tableXY =
+    (label, table) =>
+    ({ x = 0, y = 0 } = {}) =>
+    (z => z || '')(label[(r => r ? r[x] : undefined)(table[y])]);
 
-/** Get an accessor to the table. */
-export default ({ label = strArray, table = numArrayArray } = {}) =>
-({ x = 0, y = 0 } = {}) =>
-(z => z || '')(label[(r => r ? r[x] : undefined)(table[y])]);
+export default tableXY;

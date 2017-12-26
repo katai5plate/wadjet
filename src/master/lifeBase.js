@@ -21,4 +21,4 @@ const table = [
  * Get life base that corresponding to
  * the specified month and coefficients.
  */
-export default tableXY({ label, table });
+export default tableXY(label, table);

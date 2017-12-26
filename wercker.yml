@@ -7,7 +7,7 @@ build:
       code: yarn install
     - script:
       name: Test wadjet.
-      code: yarn test
+      code: yarn run test_coverall
 
 deploy:
   steps:
