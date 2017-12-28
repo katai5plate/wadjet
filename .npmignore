@@ -1,8 +1,10 @@
 .jsbeautifyrc
+.tools
 .vscode
 __tests__
 coverage
 gulpfile.js
+jsconfig.json
 node_modules
 publish.exp
 src
