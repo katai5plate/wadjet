@@ -188,6 +188,7 @@ const record = [
  * Since it can be supposed that often specified on dates
  * after the late 20th century, the list is reversed order
  * for performance improvement.
+ * @type {{dcoef: number, month: number, year: number}[]}
  */
 const table =
     (date =>
@@ -205,6 +206,7 @@ const table =
 /**
  * Search monthly coefficient corresponding to the specified date.
  * @param {Date} date Date information.
+ * @return {number} coefficient.
  */
 const coefMonthly =
     date => {

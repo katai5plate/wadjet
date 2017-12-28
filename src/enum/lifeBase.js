@@ -1,7 +1,7 @@
 'use strict';
 
 /** Life base values list. */
-export default [
+const lifeBase = [
     'Application',
     'Association',
     'Development',
@@ -13,3 +13,6 @@ export default [
     'SelfMind',
     'SelfReliance',
 ];
+
+/** Life base values list. */
+export default lifeBase;

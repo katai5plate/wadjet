@@ -26,6 +26,7 @@ const table = [
  * Get life-base factor from month, day and coefficient.
  * @param {number} month Month. (1-12)
  * @param {number} dcoef Coefficient of day.
+ * @returns {number} Life-base factor.
  */
 const lifeBaseCoef =
     (month, dcoef) =>
