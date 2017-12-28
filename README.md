@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/wadjet.svg)](https://badge.fury.io/js/wadjet)
 [![npm download](https://img.shields.io/npm/dm/wadjet.svg?style=flat-square)](https://npmjs.org/package/wadjet)
 
-# 👁️‍🗨️ Wadjet
+# ![👁️‍🗨️ Wadjet](https://raw.githubusercontent.com/danmaq/wadjet/images/wadjet.svg?sanitize=true)
 
 🔮🎂 The __your birth date__ is based on statistical psychology and will __expose your personality__.
 This package as a module does its calculations.
