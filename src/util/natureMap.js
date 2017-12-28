@@ -5,6 +5,7 @@ import natures from '../enum/natures';
 /**
  * Generate a nature map by specified table.
  * @param {number[][]} table Values table.
+ * @returns {Object.<string, Object.<string, number>>} Personality map.
  */
 const natureMap =
     table =>

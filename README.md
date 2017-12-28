@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/wadjet.svg)](https://badge.fury.io/js/wadjet)
 [![npm download](https://img.shields.io/npm/dm/wadjet.svg?style=flat-square)](https://npmjs.org/package/wadjet)
 
-# 👁️‍🗨️ Wadjet
+# ![👁️‍🗨️ Wadjet](https://raw.githubusercontent.com/danmaq/wadjet/images/wadjet.svg?sanitize=true)
 
 🔮🎂 The __your birth date__ is based on statistical psychology and will __expose your personality__.
 This package as a module does its calculations.
@@ -35,13 +35,17 @@ console.log(JSON.stringify(personality, null, 4)); // See: Result 1
 const inner = wadjet.detail(result.inner);
 console.log(typeof inner); // object
 console.log(JSON.stringify(inner, null, 4)); // See: Result 2
+
+const team = wadjet.bizTeam(inner.business, result.inner, inner.position);
+console.log(typeof team); // object
+console.log(JSON.stringify(team, null, 4)); // See: Result 3
 ```
 
 ### Result
 
 #### 1
 
-```JSON
+```JavaScript
 {
     "cycle": 4,
     "inner": "E919",
@@ -54,14 +58,14 @@ console.log(JSON.stringify(inner, null, 4)); // See: Result 2
 
 #### 2
 
-```JSON
+```JavaScript
 {
     "communication": "Fix",
     "management": "Hope",
     "response": "Action",
     "position": "Quick",
     "motivation": "Competition",
-    "nature": "E919",
+    "nature": "E919", // <- DEPRECATED: described later
     "romance": {
         "A000": 2,
         "A024": 0,
@@ -93,6 +97,16 @@ console.log(JSON.stringify(inner, null, 4)); // See: Result 2
 }
 ```
 
+#### 3
+
+```JavaScript
+{
+    "Direct": "H789",
+    "Brain": "H108",
+    "Adjust": "E125"
+}
+```
+
 ## Dependencies
 
 * nodejs >= 4.8.3
@@ -114,26 +128,48 @@ If you want the CommonJS style notation:
 const wadjet = require('wadjet').default;
 ```
 
-### `wadjet.affinity`
+### `wadjet.bizTeam`
 
-Evaluation function used for sorting in affinity order.
+Create personality types list of best affinitic for team.
 
 ```JavaScript
-wadjet.detail(a: String, b: String) -> Number
+wadjet.bizTeam(business: Object.<string, number>, personality: string, position?: string) -> Object.<string, string>
 ```
 
-* `a`: Personality type.
-* `b`: Personality type.
+* `business`: Good business formation levels.
+* `personality`: Personality type.
+* `position`: Position type. Optional.
+
+### `wadjet.comparator`
+
+Create evaluation function used for sorting in affinity order.
+
+```JavaScript
+wadjet.comparator(type: String) -> (a: String, b: String) -> -1 | 0 | 1
+```
+
+* `type`: Personality type.
 
 ### `wadjet.detail`
 
-Get the details corresponding to the specified nature.
+Get the details corresponding to the specified personality.
 
 ```JavaScript
-wadjet.detail(key: String) -> Object
+wadjet.detail(key: String) -> {
+    communication: String,
+    management: String,
+    motivation: String,
+    nature: String, /* DEPRECATED */
+    response: String,
+    position: String,
+    romance: Object.<string, number>,
+    business: Object.<string, number>
+}
 ```
 
-* `key`: Nature type.
+* `key`: Personality type.
+
+__The "nature" property in return value__ has been DEPRECATED since version 3.3.0. It will __no longer be version 4.0.0 or later.__  
 
 ### `wadjet.personality`
 
@@ -160,10 +196,24 @@ wadjet.types -> ReadonlyArray.<String>
 
 * `birth`: Birthday. It can be set _from 1873-02-01 to 2050-12-31_.
 
+### `wadjet.affinity` [DEPRECATED]
+
+__This function is DEPRECATED since version 3.3.0. And will no longer since version 4.0.0.__  
+Should use `personality` function.
+
+Evaluation function used for sorting in affinity order.
+
+```JavaScript
+wadjet.detail(a: String, b: String) -> Number
+```
+
+* `a`: Personality type.
+* `b`: Personality type.
+
 ### `wadjet.calc` [DEPRECATED]
 
 __This function is DEPRECATED since version 3.2.0. And will no longer since version 4.0.0.__  
-Should use `personality` function.
+Should use `wadjet.personality` function.
 
 Get personality from birthday.
 
