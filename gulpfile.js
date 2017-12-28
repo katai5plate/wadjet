@@ -16,7 +16,8 @@ function babelrc(targets) {
                     'targets': targets
                 }
             ]
-        ]
+        ],
+        'plugins': ['transform-runtime']
     };
 }
 
@@ -65,9 +66,15 @@ gulp.task('jest', ['babelDist', 'babelTest'], function () {
         .pipe(jest(jestrc));
 });
 
-gulp.task('watch', function () {
-    gulp.watch(['./src/**/*.js'], ['babelDist', 'jest']);
-    gulp.watch(['./test/**/*.js'], ['babelTest', 'jest']);
+gulp.task('watch_src', function () {
+    gulp.watch('./src/**/*.js', ['babelDist', 'jest']);
 });
 
-gulp.task('default', ['babelDist', 'babelTest', 'jest', 'watch']);
+gulp.task('watch_test', function () {
+    gulp.watch('./test/**/*.js', ['babelTest', 'jest']);
+});
+
+gulp.task(
+    'default', [
+        'babelDist', 'babelTest', 'jest', 'watch_src', 'watch_test'
+    ]);
