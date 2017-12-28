@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd $(cd $(dirname $0); pwd)/..
+rm -rf __tests__ coverage dist node_modules
+yarn cache clean

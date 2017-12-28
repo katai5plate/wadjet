@@ -6,7 +6,8 @@ import natures from '../enum/natures';
  * Generate a nature map by specified table.
  * @param {number[][]} table Values table.
  */
-export default table =>
+const natureMap =
+    table =>
     table
     .map(
         (r, i) => ({
@@ -18,3 +19,5 @@ export default table =>
                 .reduce((p, c) => ({ ...p, ...c }), {})
         }))
     .reduce((p, c) => ({ ...p, ...c }), {});
+
+export default natureMap;

@@ -1,6 +1,7 @@
 .jsbeautifyrc
 .vscode
 __tests__
+coverage
 gulpfile.js
 node_modules
 publish.exp

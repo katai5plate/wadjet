@@ -1,11 +1,10 @@
 'use strict';
 
-import calculator from '../../dist/util/calculator';
+import calculator_deprecated from '../../dist/util/calculator_deprecated';
 
-test('is Function', () => expect(calculator).toBeInstanceOf(Function));
-test('Be truthy', () => expect(calculator()).toBeTruthy());
+test('is Function', () => expect(calculator_deprecated).toBeInstanceOf(Function));
 test('situation A', () => {
-    const result = calculator('2007-08-31');
+    const result = calculator_deprecated('2007-08-31');
     const expected = {
         cycle: 4,
         lifeBase: 'Investment',
@@ -87,7 +86,7 @@ test('situation A', () => {
     expect(result).toEqual(expected);
 });
 test('situation B', () => {
-    const result = calculator('1956-02-26');
+    const result = calculator_deprecated('1956-02-26');
     const expected = {
         cycle: 10,
         lifeBase: 'Development',
@@ -169,7 +168,7 @@ test('situation B', () => {
     expect(result).toEqual(expected);
 });
 test('situation C', () => {
-    const result = calculator('1993-01-29');
+    const result = calculator_deprecated('1993-01-29');
     const expected = {
         cycle: 7,
         lifeBase: 'Quest',
@@ -251,9 +250,9 @@ test('situation C', () => {
     expect(result).toEqual(expected);
 });
 test('Out of range', () => {
-    const result = calculator('1981-10-12');
-    expect(() => calculator('1873-01-31')).toThrowError();
-    expect(() => calculator('2051-01-01')).toThrowError();
-    expect(calculator('1873-02-01')).toBeTruthy();
-    expect(calculator('2050-12-31')).toBeTruthy();
+    const result = calculator_deprecated('1981-10-12');
+    expect(() => calculator_deprecated('1873-01-31')).toThrowError();
+    expect(() => calculator_deprecated('2051-01-01')).toThrowError();
+    expect(calculator_deprecated('1873-02-01')).toBeTruthy();
+    expect(calculator_deprecated('2050-12-31')).toBeTruthy();
 });

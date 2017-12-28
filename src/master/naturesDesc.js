@@ -26,7 +26,7 @@ const motivation = [
  * @param {number[]} row row values.
  */
 const generate = (...row) =>
-    Object.freeze({
+    ({
         communication: communication[row[0]] || '',
         management: management[row[1]] || '',
         response: response[row[2]] || '',
@@ -60,5 +60,8 @@ const map =
 /**
  * Get the details corresponding to the specified nature.
  * @param {string} key Nature key.
+ * @returns {{communication: string, management: string, response: string, position: string, motivation: string, nature: string, romance: Object.<string, number>, business: Object.<string, number>}} Detail.
  */
-export default key => map.get(key) || unknown;
+const natureDesc = key => ({ ...(map.get(key) || unknown) });
+
+export default natureDesc;
