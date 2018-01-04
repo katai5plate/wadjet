@@ -4,6 +4,9 @@ import natures from '../enum/natures';
 import romance from './natureRomance';
 import business from './natureBiz';
 
+/** Brain values list. */
+const brain = ['Left', 'Right'];
+
 /** Communication values list. */
 const communication = ['Fix', 'Flex'];
 
@@ -32,9 +35,10 @@ const generate = (...row) =>
         response: response[row[2]] || '',
         position: position[row[3]] || '',
         motivation: motivation[row[4]] || '',
-        nature: natures[row[5]] || '',
-        romance: romance[natures[row[5]]] || {},
-        business: business[natures[row[5]]] || {},
+        brain: brain[row[5]] || '',
+        nature: natures[row[6]] || '',
+        romance: romance[natures[row[6]]] || {},
+        business: business[natures[row[6]]] || {},
     });
 
 /** Default value when key did not found. */
@@ -43,18 +47,18 @@ const unknown = generate(-1, -1, -1, -1, -1, -1);
 /** Map of natures description data. */
 const map =
     new Map([
-        [1, 1, 1, 1, 5],
-        [1, 0, 0, 0, 2],
-        [1, 0, 1, 2, 5],
-        [1, 1, 0, 3, 2],
-        [0, 1, 1, 1, 1],
-        [0, 0, 0, 0, 0],
-        [0, 0, 1, 2, 1],
-        [0, 1, 0, 3, 0],
-        [0, 1, 0, 3, 4],
-        [0, 0, 0, 0, 4],
-        [1, 1, 1, 1, 3],
-        [1, 0, 1, 2, 3],
+        [1, 1, 1, 1, 5, 1],
+        [1, 0, 0, 0, 2, 1],
+        [1, 0, 1, 2, 5, 0],
+        [1, 1, 0, 3, 2, 0],
+        [0, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 1],
+        [0, 0, 1, 2, 1, 0],
+        [0, 1, 0, 3, 0, 0],
+        [0, 1, 0, 3, 4, 0],
+        [0, 0, 0, 0, 4, 1],
+        [1, 1, 1, 1, 3, 0],
+        [1, 0, 1, 2, 3, 0],
     ].map((value, index) => [natures[index], generate(...value, index)]));
 
 /**
