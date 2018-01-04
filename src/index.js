@@ -1,22 +1,10 @@
 'use strict';
 
 import _natures from './enum/natures';
-import { affinity, createComparator } from './util/affinity';
+import { createComparator } from './util/affinity';
 import _bizTeam from './util/bizTeam';
-import _calculator_deprecated from './util/calculator_deprecated';
 import _personality from './util/personality';
 import _naturesDesc from './master/naturesDesc';
-
-/**
- * Evaluation function used for sorting in affinity order.
- * @deprecated This function is DEPRECATED since version 3.3.0. And will no longer since version 4.0.0.
- *
- * Use `comparator` function.
- * @param {string} a Personality type.
- * @param {string} b Personality type.
- * @returns {number} Comparison result.
- */
-const _affinity = affinity;
 
 /**
  * Create personality types list of best affinitic for team.
@@ -64,24 +52,10 @@ const personality = _personality;
  */
 const types = _natures;
 
-/**
- * Get personality from birthday.
- * @param {Date|string} birth Birthday.
- * 
- * It can be set from 1873-02-01 to 2050-12-31.
- * @throws {Error} When birthday specified invalid value.
- * @deprecated This function is deprecated in version 4.0.0.
- * 
- * Use `personality` function.
- */
-const calc = _calculator_deprecated;
-
 export default Object.freeze({
-    affinity: _affinity,
     bizTeam,
     comparator,
     detail,
     personality,
     types,
-    calc,
 });

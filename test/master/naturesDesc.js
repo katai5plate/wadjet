@@ -17,6 +17,7 @@ test(
             expect(desc.response).toBeTruthy();
             expect(desc.position).toBeTruthy();
             expect(desc.motivation).toBeTruthy();
+            expect(desc.brain).toBeTruthy();
             expect(desc.nature).toBeTruthy();
             expect(desc.nature).toBe(nature);
             expect(desc.business).toBeTruthy();
@@ -33,6 +34,7 @@ test(
         expect(desc.response).toBeFalsy();
         expect(desc.position).toBeFalsy();
         expect(desc.motivation).toBeFalsy();
+        expect(desc.brain).toBeFalsy();
         expect(desc.nature).toBeFalsy();
         expect(desc.business).toEqual({});
         expect(desc.romance).toEqual({});
