@@ -1,9 +1,8 @@
 @ECHO OFF
 
 CD /d %~dp0\..
-ECHO Clean up temporary files.
-RMDIR /S /Q __tests__
-RMDIR /S /Q coverage
-RMDIR /S /Q dist
-RMDIR /S /Q node_modules
+RMDIR /S /Q __tests__ >NUL 2>&1
+RMDIR /S /Q coverage >NUL 2>&1
+RMDIR /S /Q dist >NUL 2>&1
+RMDIR /S /Q node_modules >NUL 2>&1
 CALL yarn cache clean
