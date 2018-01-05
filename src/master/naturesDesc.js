@@ -7,7 +7,7 @@ import {
     motivation,
     nature,
     position,
-    response
+    response,
 } from '../enum';
 import romance from './natureRomance';
 import business from './natureBiz';
