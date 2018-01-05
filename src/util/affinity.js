@@ -1,9 +1,11 @@
 'use strict';
 
+import '../type';
+
 /**
  * Evaluation function used for sorting in affinity order.
- * @param {'A'|'E'|'H'} a Personality type.
- * @param {'A'|'E'|'H'} b Personality type.
+ * @param {Wadjet.NatureVector} a Personality type.
+ * @param {Wadjet.NatureVector} b Personality type.
  * @return {-1|1} Comparison result.
  */
 const cmpA =
@@ -14,8 +16,8 @@ const cmpA =
     1 : -1;
 /**
  * Evaluation function used for sorting in affinity order.
- * @param {'A'|'E'|'H'} a Personality type.
- * @param {'A'|'E'|'H'} b Personality type.
+ * @param {Wadjet.NatureVector} a Personality type.
+ * @param {Wadjet.NatureVector} b Personality type.
  * @return {-1|1} Comparison result.
  */
 const cmpE =
@@ -26,8 +28,8 @@ const cmpE =
     1 : -1;
 /**
  * Evaluation function used for sorting in affinity order.
- * @param {'A'|'E'|'H'} a Personality type.
- * @param {'A'|'E'|'H'} b Personality type.
+ * @param {Wadjet.NatureVector} a Personality type.
+ * @param {Wadjet.NatureVector} b Personality type.
  * @return {-1|1} Comparison result.
  */
 const cmpH =
@@ -41,13 +43,13 @@ const cmp = { A: cmpA, E: cmpE, H: cmpH };
 
 /**
  * Create evaluation function used for sorting in affinity order.
- * @param {string} type Personality type.
+ * @param {Wadjet.Nature} type Personality type.
  */
 export const createComparator =
     type =>
     /**
-     * @param {string} a Personality type.
-     * @param {string} b Personality type.
+     * @param {Wadjet.Nature} a Personality type.
+     * @param {Wadjet.Nature} b Personality type.
      * @returns {-1|0|1}
      */
     (a, b) =>

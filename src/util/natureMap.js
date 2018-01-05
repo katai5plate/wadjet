@@ -2,10 +2,12 @@
 
 import { nature } from '../enum';
 
+import '../type';
+
 /**
  * Generate a nature map by specified table.
  * @param {number[][]} table Values table.
- * @returns {Object.<string, Object.<string, number>>} Personality map.
+ * @returns {Wadjet.NatureAffinityMap} Personality map.
  */
 const natureMap =
     table =>

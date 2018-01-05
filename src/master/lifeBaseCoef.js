@@ -1,11 +1,14 @@
 'use strict';
 
+import '../type';
+
 /** Max value. */
 const MAX = Number.MAX_VALUE;
 
 /**
  * Correspondence table of life-base factor corresponding to the month and
  * day coefficient threshold.
+ * @type {Wadjet.LifeBaseCoef[][]}
  */
 const table = [
     [{ t: 9, v: 10 }, { t: 13, v: 8 }, { t: MAX, v: 6 }],

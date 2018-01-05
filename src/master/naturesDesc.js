@@ -12,6 +12,8 @@ import {
 import romance from './natureRomance';
 import business from './natureBiz';
 
+import '../type';
+
 /**
  * Generate description data row.
  * @param {number[]} row row values.
@@ -28,10 +30,16 @@ const generate = (...row) =>
         business: business[nature[row[6]]] || {},
     });
 
-/** Default value when key did not found. */
+/**
+ * Default value when key did not found.
+ * @type {Wadjet.NatureDetail}
+ */
 const unknown = generate(-1, -1, -1, -1, -1, -1);
 
-/** Map of natures description data. */
+/**
+ * Map of natures description data.
+ * @type {Map<Wadjet.Nature, Wadjet.NatureDetail>}
+ */
 const map =
     new Map([
         [1, 1, 1, 1, 5, 1],
@@ -50,8 +58,8 @@ const map =
 
 /**
  * Get the details corresponding to the specified nature.
- * @param {string} key Nature key.
- * @returns {{communication: string, management: string, response: string, position: string, motivation: string, nature: string, romance: Object.<string, number>, business: Object.<string, number>}} Detail.
+ * @param {Wadjet.Nature} key Nature key.
+ * @returns {Wadjet.NatureDetail} Detail.
  */
 const natureDesc = key => ({ ...(map.get(key) || unknown) });
 

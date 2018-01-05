@@ -4,12 +4,14 @@ import naturesDesc from '../master/naturesDesc';
 
 import { createComparator } from './affinity';
 
+import '../type';
+
 /**
  * Create personality types list of best affinitic for team.
- * @param {Object.<string, number>} business Good business formation levels.
- * @param {string} personality Personality type.
- * @param {string} [position] Position type.
- * @returns {Object.<string, string>} Personality types list.
+ * @param {Wadjet.NatureAffinity} business Good business formation levels.
+ * @param {Wadjet.Nature} personality Personality type.
+ * @param {Wadjet.Position} [position] Position type.
+ * @returns {Object.<string, Wadjet.Nature>} Personality types list.
  */
 const bizTeam =
     (business, personality, position) => {
