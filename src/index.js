@@ -1,6 +1,6 @@
 'use strict';
 
-import _natures from './enum/natures';
+import { nature } from './enum';
 import { createComparator } from './util/affinity';
 import _bizTeam from './util/bizTeam';
 import _personality from './util/personality';
@@ -50,7 +50,7 @@ const personality = _personality;
  * Natures values list.
  * @type {ReadonlyArray.<string>}
  */
-const types = _natures;
+const types = nature;
 
 export default Object.freeze({
     bizTeam,

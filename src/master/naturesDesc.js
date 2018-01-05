@@ -1,28 +1,16 @@
 'use strict';
 
-import natures from '../enum/natures';
+import {
+    brain,
+    communication,
+    management,
+    motivation,
+    nature,
+    position,
+    response
+} from '../enum';
 import romance from './natureRomance';
 import business from './natureBiz';
-
-/** Brain values list. */
-const brain = ['Left', 'Right'];
-
-/** Communication values list. */
-const communication = ['Fix', 'Flex'];
-
-/** Management values list. */
-const management = ['Care', 'Hope'];
-
-/** Response values list. */
-const response = ['Action', 'Mind'];
-
-/** Position values list. */
-const position = ['Adjust', 'Brain', 'Direct', 'Quick'];
-
-/** Motivation values list. */
-const motivation = [
-    'Competition', 'OwnMind', 'Power', 'Safety', 'SkillUp', 'Status',
-];
 
 /**
  * Generate description data row.
@@ -36,9 +24,8 @@ const generate = (...row) =>
         position: position[row[3]] || '',
         motivation: motivation[row[4]] || '',
         brain: brain[row[5]] || '',
-        nature: natures[row[6]] || '',
-        romance: romance[natures[row[6]]] || {},
-        business: business[natures[row[6]]] || {},
+        romance: romance[nature[row[6]]] || {},
+        business: business[nature[row[6]]] || {},
     });
 
 /** Default value when key did not found. */
@@ -59,7 +46,7 @@ const map =
         [0, 0, 0, 0, 4, 1],
         [1, 1, 1, 1, 3, 1],
         [1, 0, 1, 2, 3, 0],
-    ].map((value, index) => [natures[index], generate(...value, index)]));
+    ].map((value, index) => [nature[index], generate(...value, index)]));
 
 /**
  * Get the details corresponding to the specified nature.

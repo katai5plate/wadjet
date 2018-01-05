@@ -1,7 +1,7 @@
 'use strict';
 
 import naturesDesc from '../../dist/master/naturesDesc';
-import natures from '../../dist/enum/natures';
+import { nature } from '../../dist/enum';
 
 test(
     'Whether is `naturesDesc` general object.',
@@ -9,8 +9,8 @@ test(
 test(
     'Whether possible to obtain correct value corresponding to correct input.',
     () => {
-        for (let nature of natures) {
-            const desc = naturesDesc(nature);
+        for (const n of nature) {
+            const desc = naturesDesc(n);
             expect(desc).toBeTruthy();
             expect(desc.communication).toBeTruthy();
             expect(desc.management).toBeTruthy();
@@ -18,8 +18,6 @@ test(
             expect(desc.position).toBeTruthy();
             expect(desc.motivation).toBeTruthy();
             expect(desc.brain).toBeTruthy();
-            expect(desc.nature).toBeTruthy();
-            expect(desc.nature).toBe(nature);
             expect(desc.business).toBeTruthy();
             expect(desc.romance).toBeTruthy();
         }
@@ -35,7 +33,6 @@ test(
         expect(desc.position).toBeFalsy();
         expect(desc.motivation).toBeFalsy();
         expect(desc.brain).toBeFalsy();
-        expect(desc.nature).toBeFalsy();
         expect(desc.business).toEqual({});
         expect(desc.romance).toEqual({});
     });

@@ -1,6 +1,6 @@
 'use strict';
 
-import natures from '../enum/natures';
+import { nature } from '../enum';
 
 /**
  * Generate a nature map by specified table.
@@ -12,10 +12,10 @@ const natureMap =
     table
     .map(
         (r, i) => ({
-            [natures[i]]: r
+            [nature[i]]: r
                 .map(
                     (v, i) => ({
-                        [natures[i]]: v
+                        [nature[i]]: v
                     }))
                 .reduce((p, c) => ({ ...p, ...c }), {})
         }))
