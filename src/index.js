@@ -4,7 +4,7 @@ import { nature } from './enum';
 import { createComparator } from './util/affinity';
 import _bizTeam from './util/bizTeam';
 import _personality from './util/personality';
-import _naturesDesc from './master/naturesDesc';
+import _detail from './master/detail';
 
 import './type';
 
@@ -29,7 +29,7 @@ const comparator = createComparator;
  * @param {Wadjet.Nature} key Nature key.
  * @returns {Wadjet.NatureDetail} Detail.
  */
-const detail = _naturesDesc;
+const detail = _detail;
 
 /**
  * Get personality from birthday.

@@ -1,16 +1,16 @@
 'use strict';
 
-import naturesDesc from '../../dist/master/naturesDesc';
+import detail from '../../dist/master/detail';
 import { nature } from '../../dist/enum';
 
 test(
-    'Whether is `naturesDesc` general object.',
-    () => expect(naturesDesc).toBeInstanceOf(Function));
+    'Whether is `detail` general object.',
+    () => expect(detail).toBeInstanceOf(Function));
 test(
     'Whether possible to obtain correct value corresponding to correct input.',
     () => {
         for (const n of nature) {
-            const desc = naturesDesc(n);
+            const desc = detail(n);
             expect(desc).toBeTruthy();
             expect(desc.communication).toBeTruthy();
             expect(desc.management).toBeTruthy();
@@ -25,7 +25,7 @@ test(
 test(
     'Whether possible to obtain empty value corresponding to incorrect input.',
     () => {
-        const desc = naturesDesc('');
+        const desc = detail('');
         expect(desc).toBeTruthy();
         expect(desc.communication).toBeFalsy();
         expect(desc.management).toBeFalsy();
