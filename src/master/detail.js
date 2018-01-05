@@ -61,6 +61,6 @@ const map =
  * @param {Wadjet.Nature} key Nature key.
  * @returns {Wadjet.NatureDetail} Detail.
  */
-const natureDesc = key => ({ ...(map.get(key) || unknown) });
+const detail = key => ({ ...(map.get(key) || unknown) });
 
-export default natureDesc;
+export default detail;

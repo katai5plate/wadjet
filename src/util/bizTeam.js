@@ -1,6 +1,6 @@
 'use strict';
 
-import naturesDesc from '../master/naturesDesc';
+import detail from '../master/detail';
 
 import { createComparator } from './affinity';
 
@@ -20,7 +20,7 @@ const bizTeam =
             .entries(business)
             .map(
                 ([type, pri]) =>
-                ({ type, pri, pos: naturesDesc(type).position }));
+                ({ type, pri, pos: detail(type).position }));
         const comparator = createComparator(personality);
         // NOTE: sort() function performs a destructive change,
         // and return value depends on environment.
