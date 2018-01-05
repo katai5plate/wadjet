@@ -1,5 +1,7 @@
 'use strict';
 
+import '../type';
+
 /** Monthly coefficient since Feb. 1873 and later. */
 const record = [
     4, 6, 5, 6, 6, 7, 8, 8, 8, 8, 7, // Start at *Feb. 1873*
@@ -188,7 +190,7 @@ const record = [
  * Since it can be supposed that often specified on dates
  * after the late 20th century, the list is reversed order
  * for performance improvement.
- * @type {{dcoef: number, month: number, year: number}[]}
+ * @type {Wadjet.CoefMonthly[]}
  */
 const table =
     (date =>

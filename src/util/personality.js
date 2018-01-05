@@ -6,10 +6,12 @@ import lifeBaseCoef from '../master/lifeBaseCoef';
 import natures from '../master/natures';
 import potential from '../master/potential';
 
+import '../type';
+
 /**
  * Create to year, month, date and coefficient of date from input.
  * @param {Date|string} birth Birthday.
- * @return {{year: number, month: number, date: number, dcoef: number}}
+ * @return {Wadjet.CoefMonthly & {date: number}}
  * @throws {Error} When birthday was out of range.
  */
 const ymd =
@@ -46,7 +48,7 @@ const naturePotential =
  * @param {Date|string} birth Birthday.
  * 
  * It can be set from 1873-02-01 to 2050-12-31.
- * @returns {{cycle: number, inner: string, lifeBase: string, outer: string, potential: string, workstyle: string}} Personality.
+ * @returns {Wadjet.Personality} Personality.
  * @throws {Error} When birthday specified invalid value.
  */
 const calculator =

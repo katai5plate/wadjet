@@ -60,12 +60,12 @@ console.log(JSON.stringify(team, null, 4)); // See: Result 3
 
 ```JavaScript
 {
+    "brain": "Right",
     "communication": "Fix",
     "management": "Hope",
     "response": "Action",
     "position": "Quick",
     "motivation": "Competition",
-    "nature": "E919", // <- DEPRECATED: described later
     "romance": {
         "A000": 2,
         "A024": 0,
@@ -156,10 +156,10 @@ Get the details corresponding to the specified personality.
 
 ```JavaScript
 wadjet.detail(key: String) -> {
+    brain: String,
     communication: String,
     management: String,
     motivation: String,
-    nature: String, /* DEPRECATED */
     response: String,
     position: String,
     romance: Object.<string, number>,
@@ -168,8 +168,6 @@ wadjet.detail(key: String) -> {
 ```
 
 * `key`: Personality type.
-
-__The "nature" property in return value__ has been DEPRECATED since version 3.3.0. It will __no longer be version 4.0.0 or later.__  
 
 ### `wadjet.personality`
 
@@ -191,41 +189,7 @@ wadjet.personality(birth: Date | String) -> {
 Personality types list.
 
 ```JavaScript
-wadjet.types -> ReadonlyArray.<String>
-```
-
-* `birth`: Birthday. It can be set _from 1873-02-01 to 2050-12-31_.
-
-### `wadjet.affinity` [DEPRECATED]
-
-__This function is DEPRECATED since version 3.3.0. And will no longer since version 4.0.0.__  
-Should use `personality` function.
-
-Evaluation function used for sorting in affinity order.
-
-```JavaScript
-wadjet.detail(a: String, b: String) -> Number
-```
-
-* `a`: Personality type.
-* `b`: Personality type.
-
-### `wadjet.calc` [DEPRECATED]
-
-__This function is DEPRECATED since version 3.2.0. And will no longer since version 4.0.0.__  
-Should use `wadjet.personality` function.
-
-Get personality from birthday.
-
-```JavaScript
-wadjet.calc(birth: Date | String) -> {
-    cycle: Number,
-    inner: Object,
-    lifeBase: String,
-    outer: Object,
-    potential: String,
-    workstyle: String
-}
+wadjet.types -> ReadonlyArray<String>
 ```
 
 * `birth`: Birthday. It can be set _from 1873-02-01 to 2050-12-31_.
@@ -241,9 +205,9 @@ wadjet.calc(birth: Date | String) -> {
 
 1. `s/require\('wadjet'\);/require('wadjet').default;/g`
 
-### from 3.0.x-3.1.x
+### from 3.x.x
 
-Although `wadjet.calc` function was deprecated, it can be replaced with the following code:
+Although `wadjet.calc` function was no longer, it can be replaced with the following code:
 
 ```JavaScript
 const calc =
@@ -253,6 +217,8 @@ const calc =
             outer: wadjet.detail(outer),
             ...result
         }))(wadjet.personality(birth));
+
+const result = calc(new Date('2007-08-31'));
 ```
 
 ## See also

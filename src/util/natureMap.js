@@ -1,21 +1,23 @@
 'use strict';
 
-import natures from '../enum/natures';
+import { nature } from '../enum';
+
+import '../type';
 
 /**
  * Generate a nature map by specified table.
  * @param {number[][]} table Values table.
- * @returns {Object.<string, Object.<string, number>>} Personality map.
+ * @returns {Wadjet.NatureAffinityMap} Personality map.
  */
 const natureMap =
     table =>
     table
     .map(
         (r, i) => ({
-            [natures[i]]: r
+            [nature[i]]: r
                 .map(
                     (v, i) => ({
-                        [natures[i]]: v
+                        [nature[i]]: v
                     }))
                 .reduce((p, c) => ({ ...p, ...c }), {})
         }))

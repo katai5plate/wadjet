@@ -1,34 +1,11 @@
 'use strict';
 
-/**
- * Evaluation function used for sorting in affinity order.
- * @deprecated This function is DEPRECATED since version 3.3.0. And will no longer since version 4.0.0.
- * 
- * Use `comparator` function.
- * @param {string} a Personality type.
- * @param {string} b Personality type.
- * @returns {number} Comparison result.
- */
-export const affinity =
-    (a, b) => {
-        console.warn(
-            'This function is DEPRECATED since version 3.3.0. And will no longer since version 4.0.0. Use `comparator` function.'
-        );
-        const _a = a.charAt().toUpperCase();
-        const _b = b.charAt().toUpperCase();
-        const result =
-            _a === _b || /[^EAH]/.test(_b) ? 0 :
-            _a === 'H' ? (_b === 'E' ? 1 : -1) :
-            _a === 'E' ? (_b === 'A' ? 1 : -1) :
-            _a === 'A' ? (_b === 'H' ? 1 : -1) :
-            0;
-        return result;
-    };
+import '../type';
 
 /**
  * Evaluation function used for sorting in affinity order.
- * @param {'A'|'E'|'H'} a Personality type.
- * @param {'A'|'E'|'H'} b Personality type.
+ * @param {Wadjet.NatureVector} a Personality type.
+ * @param {Wadjet.NatureVector} b Personality type.
  * @return {-1|1} Comparison result.
  */
 const cmpA =
@@ -39,8 +16,8 @@ const cmpA =
     1 : -1;
 /**
  * Evaluation function used for sorting in affinity order.
- * @param {'A'|'E'|'H'} a Personality type.
- * @param {'A'|'E'|'H'} b Personality type.
+ * @param {Wadjet.NatureVector} a Personality type.
+ * @param {Wadjet.NatureVector} b Personality type.
  * @return {-1|1} Comparison result.
  */
 const cmpE =
@@ -51,8 +28,8 @@ const cmpE =
     1 : -1;
 /**
  * Evaluation function used for sorting in affinity order.
- * @param {'A'|'E'|'H'} a Personality type.
- * @param {'A'|'E'|'H'} b Personality type.
+ * @param {Wadjet.NatureVector} a Personality type.
+ * @param {Wadjet.NatureVector} b Personality type.
  * @return {-1|1} Comparison result.
  */
 const cmpH =
@@ -66,13 +43,13 @@ const cmp = { A: cmpA, E: cmpE, H: cmpH };
 
 /**
  * Create evaluation function used for sorting in affinity order.
- * @param {string} type Personality type.
+ * @param {Wadjet.Nature} type Personality type.
  */
 export const createComparator =
     type =>
     /**
-     * @param {string} a Personality type.
-     * @param {string} b Personality type.
+     * @param {Wadjet.Nature} a Personality type.
+     * @param {Wadjet.Nature} b Personality type.
      * @returns {-1|0|1}
      */
     (a, b) =>
@@ -83,5 +60,3 @@ export const createComparator =
         b.charAt().toUpperCase(),
         type.charAt().toUpperCase(),
         /[^EAH]/) >> 0;
-
-export default affinity;
