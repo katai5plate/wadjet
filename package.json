@@ -45,6 +45,7 @@
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-3": "^6.24.1",
         "coveralls": "^3.0.0",
+        "eslint": "^4.16.0",
         "gulp": "^3.9.1",
         "gulp-babel": "^7.0.0",
         "gulp-debug": "^3.1.0",
