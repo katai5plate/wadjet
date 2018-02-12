@@ -11,6 +11,7 @@ const cmpA =
     (a === 'A' && b === 'H') ||
     (a === 'E' && b === 'H') ?
     1 : -1);
+
 /**
  * Evaluation function used for sorting in affinity order.
  * @param {Wadjet.NatureVector} a Personality type.
@@ -22,6 +23,7 @@ const cmpE =
     (a === 'E' && b === 'A') ||
     (a === 'H' && b === 'A') ?
     1 : -1);
+
 /**
  * Evaluation function used for sorting in affinity order.
  * @param {Wadjet.NatureVector} a Personality type.
@@ -34,6 +36,7 @@ const cmpH =
     (a === 'A' && b === 'E') ?
     1 : -1);
 
+/** Collection of comparator. */
 const cmp = { A: cmpA, E: cmpE, H: cmpH };
 
 /**
