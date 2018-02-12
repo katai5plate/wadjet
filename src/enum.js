@@ -1,5 +1,3 @@
-'use strict';
-
 import './type';
 
 /**
@@ -16,20 +14,20 @@ export const communication = Object.freeze(['Fix', 'Flex']);
 
 /**
  * Life base values list.
- * @type {ReadonlyArray<Wadjet.LifeBase>}
+ * @type {ReadonlyArray<string>}
  */
 export const lifeBase =
     Object.freeze([
-        'Application',
-        'Association',
-        'Development',
-        'Expression',
-        'Finance',
-        'Investment',
-        'Organization',
-        'Quest',
-        'SelfMind',
-        'SelfReliance',
+      'Application',
+      'Association',
+      'Development',
+      'Expression',
+      'Finance',
+      'Investment',
+      'Organization',
+      'Quest',
+      'SelfMind',
+      'SelfReliance',
     ]);
 
 /**
@@ -44,27 +42,27 @@ export const management = Object.freeze(['Care', 'Hope']);
  */
 export const motivation =
     Object.freeze([
-        'Competition', 'OwnMind', 'Power', 'Safety', 'SkillUp', 'Status',
+      'Competition', 'OwnMind', 'Power', 'Safety', 'SkillUp', 'Status',
     ]);
 
 /**
  * Natures values list.
- * @type {ReadonlyArray<Wadjet.Nature>}
+ * @type {ReadonlyArray<string>}
  */
 export const nature =
     Object.freeze([
-        'A000',
-        'A024',
-        'A100',
-        'A888',
-        'E001',
-        'E125',
-        'E555',
-        'E919',
-        'H012',
-        'H025',
-        'H108',
-        'H789',
+      'A000',
+      'A024',
+      'A100',
+      'A888',
+      'E001',
+      'E125',
+      'E555',
+      'E919',
+      'H012',
+      'H025',
+      'H108',
+      'H789',
     ]);
 
 /**
@@ -80,7 +78,7 @@ export const position =
  */
 export const potential =
     Object.freeze([
-        'Ci', 'Co', 'Ei', 'Eo', 'Fi', 'Fo', 'Ii', 'Io', 'Ni', 'No'
+      'Ci', 'Co', 'Ei', 'Eo', 'Fi', 'Fo', 'Ii', 'Io', 'Ni', 'No',
     ]);
 
 /**

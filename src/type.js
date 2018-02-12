@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Affinity level.
  * @typedef {0|1|2|3} Wadjet.Level
@@ -8,10 +6,6 @@
 /** @typedef {'Left'|'Right'} Wadjet.Brain */
 
 /** @typedef {'Fix'|'Flex'} Wadjet.Communication */
-
-/**
- * @typedef {'Application'|'Association'|'Development'|'Expression'|'Finance'|'Investment'|'Organization'|'Quest'|'SelfMind'|'SelfReliance'} Wadjet.LifeBase
- */
 
 /** @typedef {'Care'|'Hope'} Wadjet.Management */
 
@@ -26,10 +20,6 @@
  */
 
 /** @typedef {'Action'|'Mind'} Wadjet.Response */
-
-/**
- * @typedef {'A000'|'A024'|'A100'|'A888'|'E001'|'E125'|'E555'|'E919'|'H012'|'H025'|'H108'|'H789'} Wadjet.Nature
- */
 
 /** @typedef {'A'|'E'|'H'} Wadjet.NatureVector */
 
@@ -93,16 +83,16 @@
 /**
  * @typedef {object} Wadjet.Personality
  * @property {number} cycle Cycle.
- * @property {Wadjet.Nature} inner Inner personality type.
- * @property {Wadjet.LifeBase} lifeBase LifeBase type.
- * @property {Wadjet.Nature} outer Outer personality type.
+ * @property {string} inner Inner personality type.
+ * @property {string} lifeBase LifeBase type.
+ * @property {string} outer Outer personality type.
  * @property {Wadjet.Potential} potential Potential type.
- * @property {Wadjet.Nature} workstyle Personality type when concentrated.
+ * @property {string} workstyle Personality type when concentrated.
  */
 
 /**
  * @callback Wadjet.Comparator
- * @param {Wadjet.Nature} a Personality type.
- * @param {Wadjet.Nature} b Personality type.
+ * @param {string} a Personality type.
+ * @param {string} b Personality type.
  * @returns {-1|0|1} Comparison result.
  */

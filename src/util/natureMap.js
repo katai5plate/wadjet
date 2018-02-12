@@ -1,5 +1,3 @@
-'use strict';
-
 import { nature } from '../enum';
 
 import '../type';
@@ -10,17 +8,12 @@ import '../type';
  * @returns {Wadjet.NatureAffinityMap} Personality map.
  */
 const natureMap =
-    table =>
-    table
-    .map(
-        (r, i) => ({
-            [nature[i]]: r
-                .map(
-                    (v, i) => ({
-                        [nature[i]]: v
-                    }))
-                .reduce((p, c) => ({ ...p, ...c }), {})
-        }))
-    .reduce((p, c) => ({ ...p, ...c }), {});
+  table =>
+    table.map((r, ri) => ({
+      [nature[ri]]:
+        r
+          .map((v, vi) => ({ [nature[vi]]: v }))
+          .reduce((p, c) => ({ ...p, ...c }), {}),
+    })).reduce((p, c) => ({ ...p, ...c }), {});
 
 export default natureMap;
