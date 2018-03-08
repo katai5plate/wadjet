@@ -1,68 +1,68 @@
 {
-    "name": "wadjet",
-    "version": "4.0.1",
-    "description": "The your birth date is based on statistical psychology and will expose your personality. This package as a mocule does its calculations.",
-    "author": {
-        "name": "Shuhei Nomura (danmaq)",
-        "email": "info@danmaq.com",
-        "url": "https://danmaq.com"
-    },
-    "license": "MIT",
-    "keywords": [
-        "divination",
-        "jokes",
-        "psychology"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/danmaq/wadjet.git"
-    },
-    "bugs": {
-        "url": "https://github.com/danmaq/wadjet/issues"
-    },
-    "homepage": "https://github.com/danmaq/wadjet",
-    "main": "dist/index.js",
-    "engines": {
-        "node": ">=4.8.3"
-    },
-    "scripts": {
-        "start": "gulp",
-        "babel": "babel",
-        "clean": ".tools/clean",
-        "prepublish": "gulp babelDistVerbose babelTestVerbose",
-        "test": "jest --coverage",
-        "test_coverall": "jest --coverage && cat ./coverage/lcov.info | coveralls"
-    },
-    "dependencies": {
-        "babel-runtime": "^6.26.0"
-    },
-    "devDependencies": {
-        "@types/gulp": "^4.0.5",
-        "@types/gulp-babel": "^6.1.29",
-        "@types/gulp-debug": "^2.0.31",
-        "@types/gulp-plumber": "^0.0.32",
-        "@types/jest": "^22.2.0",
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-eslint": "^8.2.2",
-        "babel-plugin-transform-runtime": "^6.23.0",
-        "babel-preset-env": "^1.6.1",
-        "babel-preset-stage-3": "^6.24.1",
-        "coveralls": "^3.0.0",
-        "eslint": "^4.18.2",
-        "eslint-config-airbnb-base": "^12.1.0",
-        "eslint-plugin-import": "^2.9.0",
-        "eslint-plugin-jest": "^21.13.0",
-        "gulp": "^3.9.1",
-        "gulp-babel": "^7.0.1",
-        "gulp-debug": "^3.2.0",
-        "gulp-eslint": "^4.0.2",
-        "gulp-jest": "^3.0.1",
-        "gulp-plumber": "^1.2.0",
-        "gulp-wait": "^0.0.2",
-        "jest-cli": "^22.4.2"
-    },
-    "jest": {
-        "verbose": false
-    }
+  "name": "wadjet",
+  "version": "4.0.1",
+  "description": "The your birth date is based on statistical psychology and will expose your personality. This package as a mocule does its calculations.",
+  "author": {
+    "name": "Shuhei Nomura (danmaq)",
+    "email": "info@danmaq.com",
+    "url": "https://danmaq.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "divination",
+    "jokes",
+    "psychology"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danmaq/wadjet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danmaq/wadjet/issues"
+  },
+  "homepage": "https://github.com/danmaq/wadjet",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=4.8.3"
+  },
+  "scripts": {
+    "start": "gulp",
+    "babel": "babel",
+    "clean": ".tools/clean",
+    "prepublish": "gulp babelDistVerbose babelTestVerbose",
+    "test": "jest --coverage",
+    "test_coverall": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.5",
+    "@types/gulp-babel": "^6.1.29",
+    "@types/gulp-debug": "^2.0.31",
+    "@types/gulp-plumber": "^0.0.32",
+    "@types/jest": "^22.2.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.13.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-debug": "^3.2.0",
+    "gulp-eslint": "^4.0.2",
+    "gulp-jest": "^4.0.2",
+    "gulp-plumber": "^1.2.0",
+    "gulp-wait": "^0.0.2",
+    "jest-cli": "^22.4.2"
+  },
+  "jest": {
+    "verbose": false
+  }
 }
