@@ -7,26 +7,26 @@ set PROMPT "\[#%>\]"
 
 spawn yarn publish
 expect {
-    "New version" {
-        send "\n"
-        exp_continue
-    }
-    "npm username" {
-        send "${NPM_USER}\n"
-        exp_continue
-    }
-    "npm email" {
-        send "${NPM_EMAIL}\n"
-        exp_continue
-    }
-    "npm password" {
-        send "${NPM_PASS}\n"
-    }
+  "New version" {
+    send "\n"
+    exp_continue
+  }
+  "npm username" {
+    send "${NPM_USER}\n"
+    exp_continue
+  }
+  "npm email" {
+    send "${NPM_EMAIL}\n"
+    exp_continue
+  }
+  "npm password" {
+    send "${NPM_PASS}\n"
+  }
 }
 
 expect {
-    -glob "${PROMPT}" {
-        interact
-        exit 0
-    }
+  -glob "${PROMPT}" {
+    interact
+    exit 0
+  }
 }
