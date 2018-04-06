@@ -17,10 +17,10 @@ function babelrc(targets) {
 
 const babelrcDist =
   babelrc({
-    android: '4.4.3',
+    browsers: ['>= 1%'],
     ie: '11',
     firefox: '52',
-    node: '4.8.7',
+    node: '6.14.1',
   });
 
 const babelrcTest = babelrc({ node: 'current' });
