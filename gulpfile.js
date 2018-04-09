@@ -17,10 +17,21 @@ function babelrc(targets) {
 
 const babelrcDist =
   babelrc({
-    android: '4.4.3',
-    ie: '11',
-    firefox: '52',
-    node: '4.8.7',
+    browsers: [
+      '> 1%',
+      'Firefox ESR',
+      'Last 2 Chrome versions',
+      'Last 2 ChromeAndroid versions',
+      'Last 2 Edge versions',
+      'Last 1 Explorer versions',
+      'Last 2 FirefoxAndroid versions',
+      'Last 2 iOS versions',
+      'Last 1 OperaMini versions',
+      'Last 2 Safari versions',
+      'Last 2 Samsung versions',
+      'Last 2 UCAndroid versions',
+    ],
+    node: '6.14.1',
   });
 
 const babelrcTest = babelrc({ node: 'current' });
