@@ -65,3 +65,4 @@ Thumbs.db
 .wercker
 __tests__
 dist
+publish.exp
