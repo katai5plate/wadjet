@@ -1,6 +1,6 @@
 {
     "name": "wadjet",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "The your birth date is based on statistical psychology and will expose your personality. This package as a mocule does its calculations.",
     "author": {
         "name": "Shuhei Nomura (danmaq)",
@@ -23,7 +23,7 @@
     "homepage": "https://github.com/danmaq/wadjet",
     "main": "dist/index.js",
     "engines": {
-        "node": ">=4.8.3"
+        "node": ">=6.14.1"
     },
     "scripts": {
         "start": "gulp",
@@ -41,17 +41,17 @@
         "@types/gulp-babel": "^6.1.29",
         "@types/gulp-debug": "^2.0.31",
         "@types/gulp-plumber": "^0.0.32",
-        "@types/jest": "^22.2.2",
+        "@types/jest": "^22.2.3",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
-        "babel-eslint": "^8.2.2",
+        "babel-eslint": "^8.2.3",
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-3": "^6.24.1",
         "coveralls": "^3.0.0",
         "eslint": "^4.19.1",
         "eslint-config-airbnb-base": "^12.1.0",
-        "eslint-plugin-import": "^2.10.0",
+        "eslint-plugin-import": "^2.11.0",
         "eslint-plugin-jest": "^21.15.0",
         "gulp": "^3.9.1",
         "gulp-babel": "^7.0.1",
