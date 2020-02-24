@@ -34,7 +34,8 @@
         "test_coverall": "jest --coverage && cat ./coverage/lcov.info | coveralls"
     },
     "dependencies": {
-        "babel-runtime": "^6.26.0"
+        "babel-runtime": "^6.26.0",
+        "wadjet": "^5.0.0"
     },
     "devDependencies": {
         "@types/gulp": "^4.0.5",
