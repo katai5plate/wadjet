@@ -179,6 +179,20 @@
     "2049": [5, 3, 5, 4, 5, 5, 7, 7, 7, 8, 7, 7],
     "2050": [5, 4, 5, 4, 5, 5, 7, 7, 7, 8, 7, 7]
   },
+  "natureTypes": [
+    "A000",
+    "A024",
+    "A100",
+    "A888",
+    "E001",
+    "E125",
+    "E555",
+    "E919",
+    "H012",
+    "H025",
+    "H108",
+    "H789"
+  ],
   "coefNatures": [
     [2, 8, 3, 7, 10, 4, 0, 9, 1, 5, 11, 6],
     [3, 8, 2, 6, 11, 5, 1, 9, 0, 4, 10, 7],
@@ -191,6 +205,18 @@
     [7, 10, 4, 0, 9, 1, 5, 11, 6, 2, 8, 3],
     [6, 11, 5, 1, 9, 0, 4, 10, 7, 3, 8, 2]
   ],
+  "potentialNames": [
+    "Ci",
+    "Co",
+    "Ei",
+    "Eo",
+    "Fi",
+    "Fo",
+    "Ii",
+    "Io",
+    "Ni",
+    "No"
+  ],
   "coefPotentials": [
     [2, 3, 4, 5, 8, 9, 0, 1, 6, 7],
     [7, 6, 3, 2, 5, 4, 9, 8, 1, 0],
@@ -202,6 +228,18 @@
     [5, 4, 9, 8, 1, 0, 7, 6, 3, 2],
     [4, 5, 8, 9, 0, 1, 6, 7, 2, 3],
     [3, 2, 5, 4, 9, 8, 1, 0, 7, 6]
+  ],
+  "lifeBaseNames": [
+    "Application",
+    "Association",
+    "Development",
+    "Expression",
+    "Finance",
+    "Investment",
+    "Organization",
+    "Quest",
+    "SelfMind",
+    "SelfReliance"
   ],
   "lifeBaseIndexes": [
     [2, 3, 5, 4, 6, 1, 7, 0, 8, 9],
@@ -275,30 +313,6 @@
       { "t": null, "v": 10 }
     ]
   ],
-  "potentialNames": [
-    "Ci",
-    "Co",
-    "Ei",
-    "Eo",
-    "Fi",
-    "Fo",
-    "Ii",
-    "Io",
-    "Ni",
-    "No"
-  ],
-  "lifeBaseNames": [
-    "Application",
-    "Association",
-    "Development",
-    "Expression",
-    "Finance",
-    "Investment",
-    "Organization",
-    "Quest",
-    "SelfMind",
-    "SelfReliance"
-  ],
   "affinity": {
     "A": {
       "A": {
@@ -352,20 +366,6 @@
       }
     }
   },
-  "natureTypes": [
-    "A000",
-    "A024",
-    "A100",
-    "A888",
-    "E001",
-    "E125",
-    "E555",
-    "E919",
-    "H012",
-    "H025",
-    "H108",
-    "H789"
-  ],
   "natureDetails": {
     "A000": {
       "communication": "Flex",

@@ -1,4 +1,4 @@
-const personality = require('./util/personality');
+const personality = require('./personality');
 
 const { natureDetails, natureTypes, affinity } = require('./const.json');
 

@@ -7,7 +7,7 @@ const {
   coefPotentials,
   potentialNames,
   natureTypes,
-} = require('../const.json');
+} = require('./const.json');
 
 /**
  * 指定した日付に対応する月間係数を検索します。
@@ -25,27 +25,18 @@ const coefMonthly = (date) =>
 const tableXY = (label, table) => ({ x = 0, y = 0 } = {}) =>
   ((z) => z || '')(label[((r) => (r ? r[x] : undefined))(table[y])]);
 
-/**
- * 指定された月と係数に対応するライフベースを取得します。
- */
-const lifeBase = tableXY(
-  /**
-   * ライフベース値リスト。
-   * @type {ReadonlyArray<string>}
-   */
-  lifeBaseNames,
-  /** 月と係数に対応するライフベースの表。 */
-  lifeBaseIndexes,
-);
-
-/** Max value. */
-const MAX = Number.MAX_VALUE;
-
-/**
- * 月と日の係数のしきい値に対応するライフベースファクターの対応表。
- * @type {Wadjet.LifeBaseCoef[][]}
- */
-const table = lifeBaseCoefTable;
+const [
+  /** 指定された月と係数に対応するライフベース */
+  lifeBase,
+  /** 指定された月と係数に対応する性質 */
+  natures,
+  /** 指定した月と係数に対応するポテンシャル */
+  potential,
+] = [
+  tableXY(lifeBaseNames, lifeBaseIndexes),
+  tableXY(natureTypes, coefNatures),
+  tableXY(potentialNames, coefPotentials),
+];
 
 /**
  * 月、日、係数からライフベースファクターを取得します。
@@ -55,32 +46,12 @@ const table = lifeBaseCoefTable;
  */
 const lifeBaseCoef = (month, dcoef) =>
   ((r, d) =>
-    !r ? Number.NaN : r.find((v) => d < (v.t === null ? MAX : v.t)).v)(
-    table[month - 1],
+    !r
+      ? Number.NaN
+      : r.find((v) => d < (v.t === null ? Number.MAX_VALUE : v.t)).v)(
+    lifeBaseCoefTable[month - 1],
     dcoef,
   );
-
-/**
- * 指定された月と係数に対応する性質を取得します。
- */
-const natures = tableXY(
-  natureTypes,
-  /** 月と係数に対応する性質の表。 */
-  coefNatures,
-);
-
-/**
- * 指定した月と係数に対応するポテンシャルを取得します。
- */
-const potential = tableXY(
-  /**
-   * 潜在的な値のリスト。
-   * @type {ReadonlyArray<Wadjet.Potential>}
-   */
-  potentialNames,
-  /** 月と係数に対応するポテンシャルの表。 */
-  coefPotentials,
-);
 
 /**
  * 入力から年、月、日付、日付の係数を作成します。
@@ -107,12 +78,8 @@ const ymd = (birth) => {
  * @param {number} cycle cycle coef.
  */
 const naturePotential = (cycle) => {
-  const code = (func, limit) =>
-    /**
-     * @param {number} v
-     * @returns {string}
-     */
-    (v) => func({ x: (v % limit || limit) - 1, y: cycle });
+  const code = (func, limit) => (v) =>
+    func({ x: (v % limit || limit) - 1, y: cycle });
   return { mn: code(natures, 12), mp: code(potential, 10) };
 };
 
