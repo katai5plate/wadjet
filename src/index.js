@@ -1,7 +1,14 @@
 const createComparator = require('./util/affinity');
-const detail = require('./master/detail');
 const personality = require('./util/personality');
-const nature = require('./master/NatureNameList');
+
+const { natureDetails, natureTypes } = require('./const.json');
+
+/**
+ * 指定された性質に対応する詳細を取得します。
+ * @param {string} key Nature key.
+ * @returns {Wadjet.NatureDetail} Detail.
+ */
+const detail = (key) => natureDetails[key];
 
 /**
  * チームに最適なアフィニティの性格タイプのリストを作成します。
@@ -64,5 +71,5 @@ module.exports = Object.freeze({
    * 自然値リスト。
    * @type {ReadonlyArray<string>}
    */
-  types: nature,
+  types: natureTypes,
 });

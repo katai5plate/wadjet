@@ -1,5 +1,3 @@
-const NatureNameList = require('../master/NatureNameList');
-
 const {
   coefMonthlyRecord,
   lifeBaseNames,
@@ -8,6 +6,7 @@ const {
   coefNatures,
   coefPotentials,
   potentialNames,
+  natureTypes,
 } = require('../const.json');
 
 /**
@@ -65,7 +64,7 @@ const lifeBaseCoef = (month, dcoef) =>
  * 指定された月と係数に対応する性質を取得します。
  */
 const natures = tableXY(
-  NatureNameList,
+  natureTypes,
   /** 月と係数に対応する性質の表。 */
   coefNatures,
 );

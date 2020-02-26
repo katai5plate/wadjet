@@ -14,8 +14,8 @@ describe('personality, detail', () => {
       const inner = [source.detail(res[0].inner), origin.detail(res[1].inner)];
       expect(inner[0]).toEqual(inner[1]);
       const team = [
-        source.detail(inner[0].business, res[0].inner, inner[0].position),
-        origin.detail(inner[1].business, res[1].inner, inner[1].position),
+        source.bizTeam(inner[0].business, res[0].inner, inner[0].position),
+        origin.bizTeam(inner[1].business, res[1].inner, inner[1].position),
       ];
       expect(team[0]).toEqual(team[1]);
     });
