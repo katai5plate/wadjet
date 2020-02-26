@@ -1,7 +1,6 @@
-const createComparator = require('./util/affinity');
 const personality = require('./util/personality');
 
-const { natureDetails, natureTypes } = require('./const.json');
+const { natureDetails, natureTypes, affinity } = require('./const.json');
 
 /**
  * 指定された性質に対応する詳細を取得します。
@@ -9,6 +8,24 @@ const { natureDetails, natureTypes } = require('./const.json');
  * @returns {Wadjet.NatureDetail} Detail.
  */
 const detail = (key) => natureDetails[key];
+
+/**
+ * アフィニティ順のソートに使用される評価関数を作成します。
+ * @param {string} type Personality type.
+ */
+const createComparator = (type) =>
+  /**
+   * @param {string} a Personality type.
+   * @param {string} b Personality type.
+   * @returns {-1|0|1}
+   */
+  (a, b) => {
+    const [x, y, t] = [a, b, type].map((i) => i.charAt().toUpperCase());
+    const p = /[^AEH]/;
+    return x === y || p.test(x) || p.test(y) || p.test(t)
+      ? 0
+      : affinity[t][x][y];
+  };
 
 /**
  * チームに最適なアフィニティの性格タイプのリストを作成します。
@@ -24,7 +41,7 @@ const bizTeam = (business, personalType, position) => {
     pos: detail(type).position,
   }));
   const comparator = createComparator(personalType);
-  // NOTE: sort（）関数は破壊的な変更を実行します。
+  // NOTE: sort() 関数は破壊的な変更を実行します。
   // 戻り値は環境に依存します。
   map.sort(({ pri: pa, type: ta }, { pri: pb, type: tb }) =>
     pa !== pb ? -(pa - pb) : comparator(ta, tb),
