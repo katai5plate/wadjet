@@ -179,6 +179,20 @@ const constants = {
     2049: [5, 3, 5, 4, 5, 5, 7, 7, 7, 8, 7, 7],
     2050: [5, 4, 5, 4, 5, 5, 7, 7, 7, 8, 7, 7],
   },
+  natureTypes: [
+    'A000',
+    'A024',
+    'A100',
+    'A888',
+    'E001',
+    'E125',
+    'E555',
+    'E919',
+    'H012',
+    'H025',
+    'H108',
+    'H789',
+  ],
   coefNatures: [
     [2, 8, 3, 7, 10, 4, 0, 9, 1, 5, 11, 6],
     [3, 8, 2, 6, 11, 5, 1, 9, 0, 4, 10, 7],
@@ -191,6 +205,7 @@ const constants = {
     [7, 10, 4, 0, 9, 1, 5, 11, 6, 2, 8, 3],
     [6, 11, 5, 1, 9, 0, 4, 10, 7, 3, 8, 2],
   ],
+  potentialNames: ['Ci', 'Co', 'Ei', 'Eo', 'Fi', 'Fo', 'Ii', 'Io', 'Ni', 'No'],
   coefPotentials: [
     [2, 3, 4, 5, 8, 9, 0, 1, 6, 7],
     [7, 6, 3, 2, 5, 4, 9, 8, 1, 0],
@@ -202,6 +217,18 @@ const constants = {
     [5, 4, 9, 8, 1, 0, 7, 6, 3, 2],
     [4, 5, 8, 9, 0, 1, 6, 7, 2, 3],
     [3, 2, 5, 4, 9, 8, 1, 0, 7, 6],
+  ],
+  lifeBaseNames: [
+    'Application',
+    'Association',
+    'Development',
+    'Expression',
+    'Finance',
+    'Investment',
+    'Organization',
+    'Quest',
+    'SelfMind',
+    'SelfReliance',
   ],
   lifeBaseIndexes: [
     [2, 3, 5, 4, 6, 1, 7, 0, 8, 9],
@@ -275,249 +302,572 @@ const constants = {
       { t: null, v: 10 },
     ],
   ],
-  natureBusinessMap: [
-    [1, 2, 1, 1, 2, 2, 0, 2, 3, 0, 3, 2],
-    [3, 1, 3, 1, 2, 1, 3, 1, 3, 2, 1, 0],
-    [2, 0, 2, 2, 0, 3, 3, 0, 0, 3, 0, 0],
-    [0, 1, 2, 2, 1, 1, 0, 0, 3, 1, 2, 0],
-    [1, 0, 2, 2, 3, 0, 1, 1, 2, 2, 1, 3],
-    [0, 2, 2, 0, 2, 3, 2, 2, 0, 1, 1, 2],
-    [1, 3, 3, 0, 1, 1, 3, 0, 0, 1, 0, 2],
-    [2, 0, 0, 3, 2, 2, 2, 0, 1, 0, 3, 3],
-    [0, 2, 2, 0, 0, 0, 3, 2, 3, 1, 2, 1],
-    [0, 3, 0, 0, 2, 0, 1, 0, 2, 3, 2, 0],
-    [0, 0, 0, 2, 0, 0, 0, 3, 1, 3, 2, 1],
-    [3, 0, 1, 2, 2, 2, 2, 3, 0, 0, 0, 0],
-  ],
-  natureRomanceMap: [
-    [3, 2, 1, 2, 1, 1, 0, 0, 0, 2, 1, 3],
-    [2, 0, 3, 3, 1, 0, 1, 1, 3, 1, 1, 0],
-    [2, 2, 2, 1, 3, 3, 3, 2, 3, 0, 0, 1],
-    [1, 3, 1, 0, 0, 0, 0, 1, 0, 0, 3, 2],
-    [0, 1, 0, 3, 0, 3, 1, 2, 1, 3, 0, 3],
-    [3, 3, 0, 0, 2, 2, 3, 0, 1, 2, 3, 1],
-    [1, 0, 3, 2, 0, 2, 2, 0, 2, 3, 1, 3],
-    [2, 0, 0, 1, 1, 2, 0, 3, 3, 1, 2, 1],
-    [2, 2, 3, 0, 2, 0, 0, 3, 2, 2, 2, 0],
-    [0, 3, 0, 0, 3, 0, 2, 0, 0, 2, 2, 3],
-    [0, 0, 3, 3, 1, 0, 0, 0, 0, 3, 3, 2],
-    [1, 1, 1, 1, 2, 3, 3, 1, 0, 0, 1, 2],
-  ],
-  natureDetailMap: [
-    [1, 1, 1, 1, 5, 1],
-    [1, 0, 0, 0, 2, 1],
-    [1, 0, 1, 2, 5, 0],
-    [1, 1, 0, 3, 2, 0],
-    [0, 1, 1, 1, 1, 1],
-    [0, 0, 0, 0, 0, 1],
-    [0, 0, 1, 2, 1, 0],
-    [0, 1, 0, 3, 0, 0],
-    [0, 1, 0, 3, 4, 0],
-    [0, 0, 0, 0, 4, 1],
-    [1, 1, 1, 1, 3, 1],
-    [1, 0, 1, 2, 3, 0],
-  ],
-  potentialNames: ['Ci', 'Co', 'Ei', 'Eo', 'Fi', 'Fo', 'Ii', 'Io', 'Ni', 'No'],
-  lifeBaseNames: [
-    'Application',
-    'Association',
-    'Development',
-    'Expression',
-    'Finance',
-    'Investment',
-    'Organization',
-    'Quest',
-    'SelfMind',
-    'SelfReliance',
-  ],
-  natureNames: {
-    arts: {
-      prefix: 'A',
-      type: ['000', '024', '100', '888'],
+  affinity: {
+    A: {
+      A: {
+        A: -1,
+        E: -1,
+        H: 1,
+      },
+      E: {
+        A: 1,
+        E: -1,
+        H: 1,
+      },
+      H: {
+        A: -1,
+        E: -1,
+        H: -1,
+      },
     },
-    education: {
-      prefix: 'E',
-      type: ['001', '125', '555', '919'],
+    E: {
+      A: {
+        A: -1,
+        E: -1,
+        H: -1,
+      },
+      E: {
+        A: 1,
+        E: -1,
+        H: -1,
+      },
+      H: {
+        A: 1,
+        E: 1,
+        H: -1,
+      },
     },
-    humanities: {
-      prefix: 'H',
-      type: ['012', '025', '108', '789'],
+    H: {
+      A: {
+        A: -1,
+        E: 1,
+        H: 1,
+      },
+      E: {
+        A: -1,
+        E: -1,
+        H: -1,
+      },
+      H: {
+        A: -1,
+        E: 1,
+        H: -1,
+      },
     },
   },
-  communicationNames: ['Fix', 'Flex'],
-  managementNames: ['Care', 'Hope'],
-  responseNames: ['Action', 'Mind'],
-  positionNames: ['Adjust', 'Brain', 'Direct', 'Quick'],
-  motivationNames: [
-    'Competition',
-    'OwnMind',
-    'Power',
-    'Safety',
-    'SkillUp',
-    'Status',
-  ],
-  brainNames: ['Left', 'Right'],
+  natureDetails: {
+    A000: {
+      communication: 'Flex',
+      management: 'Hope',
+      response: 'Mind',
+      position: 'Brain',
+      motivation: 'Status',
+      brain: 'Right',
+      romance: {
+        A000: 3,
+        A024: 2,
+        A100: 1,
+        A888: 2,
+        E001: 1,
+        E125: 1,
+        E555: 0,
+        E919: 0,
+        H012: 0,
+        H025: 2,
+        H108: 1,
+        H789: 3,
+      },
+      business: {
+        A000: 1,
+        A024: 2,
+        A100: 1,
+        A888: 1,
+        E001: 2,
+        E125: 2,
+        E555: 0,
+        E919: 2,
+        H012: 3,
+        H025: 0,
+        H108: 3,
+        H789: 2,
+      },
+    },
+    A024: {
+      communication: 'Flex',
+      management: 'Care',
+      response: 'Action',
+      position: 'Adjust',
+      motivation: 'Power',
+      brain: 'Right',
+      romance: {
+        A000: 2,
+        A024: 0,
+        A100: 3,
+        A888: 3,
+        E001: 1,
+        E125: 0,
+        E555: 1,
+        E919: 1,
+        H012: 3,
+        H025: 1,
+        H108: 1,
+        H789: 0,
+      },
+      business: {
+        A000: 3,
+        A024: 1,
+        A100: 3,
+        A888: 1,
+        E001: 2,
+        E125: 1,
+        E555: 3,
+        E919: 1,
+        H012: 3,
+        H025: 2,
+        H108: 1,
+        H789: 0,
+      },
+    },
+    A100: {
+      communication: 'Flex',
+      management: 'Care',
+      response: 'Mind',
+      position: 'Direct',
+      motivation: 'Status',
+      brain: 'Left',
+      romance: {
+        A000: 2,
+        A024: 2,
+        A100: 2,
+        A888: 1,
+        E001: 3,
+        E125: 3,
+        E555: 3,
+        E919: 2,
+        H012: 3,
+        H025: 0,
+        H108: 0,
+        H789: 1,
+      },
+      business: {
+        A000: 2,
+        A024: 0,
+        A100: 2,
+        A888: 2,
+        E001: 0,
+        E125: 3,
+        E555: 3,
+        E919: 0,
+        H012: 0,
+        H025: 3,
+        H108: 0,
+        H789: 0,
+      },
+    },
+    A888: {
+      communication: 'Flex',
+      management: 'Hope',
+      response: 'Action',
+      position: 'Quick',
+      motivation: 'Power',
+      brain: 'Left',
+      romance: {
+        A000: 1,
+        A024: 3,
+        A100: 1,
+        A888: 0,
+        E001: 0,
+        E125: 0,
+        E555: 0,
+        E919: 1,
+        H012: 0,
+        H025: 0,
+        H108: 3,
+        H789: 2,
+      },
+      business: {
+        A000: 0,
+        A024: 1,
+        A100: 2,
+        A888: 2,
+        E001: 1,
+        E125: 1,
+        E555: 0,
+        E919: 0,
+        H012: 3,
+        H025: 1,
+        H108: 2,
+        H789: 0,
+      },
+    },
+    E001: {
+      communication: 'Fix',
+      management: 'Hope',
+      response: 'Mind',
+      position: 'Brain',
+      motivation: 'OwnMind',
+      brain: 'Right',
+      romance: {
+        A000: 0,
+        A024: 1,
+        A100: 0,
+        A888: 3,
+        E001: 0,
+        E125: 3,
+        E555: 1,
+        E919: 2,
+        H012: 1,
+        H025: 3,
+        H108: 0,
+        H789: 3,
+      },
+      business: {
+        A000: 1,
+        A024: 0,
+        A100: 2,
+        A888: 2,
+        E001: 3,
+        E125: 0,
+        E555: 1,
+        E919: 1,
+        H012: 2,
+        H025: 2,
+        H108: 1,
+        H789: 3,
+      },
+    },
+    E125: {
+      communication: 'Fix',
+      management: 'Care',
+      response: 'Action',
+      position: 'Adjust',
+      motivation: 'Competition',
+      brain: 'Right',
+      romance: {
+        A000: 3,
+        A024: 3,
+        A100: 0,
+        A888: 0,
+        E001: 2,
+        E125: 2,
+        E555: 3,
+        E919: 0,
+        H012: 1,
+        H025: 2,
+        H108: 3,
+        H789: 1,
+      },
+      business: {
+        A000: 0,
+        A024: 2,
+        A100: 2,
+        A888: 0,
+        E001: 2,
+        E125: 3,
+        E555: 2,
+        E919: 2,
+        H012: 0,
+        H025: 1,
+        H108: 1,
+        H789: 2,
+      },
+    },
+    E555: {
+      communication: 'Fix',
+      management: 'Care',
+      response: 'Mind',
+      position: 'Direct',
+      motivation: 'OwnMind',
+      brain: 'Left',
+      romance: {
+        A000: 1,
+        A024: 0,
+        A100: 3,
+        A888: 2,
+        E001: 0,
+        E125: 2,
+        E555: 2,
+        E919: 0,
+        H012: 2,
+        H025: 3,
+        H108: 1,
+        H789: 3,
+      },
+      business: {
+        A000: 1,
+        A024: 3,
+        A100: 3,
+        A888: 0,
+        E001: 1,
+        E125: 1,
+        E555: 3,
+        E919: 0,
+        H012: 0,
+        H025: 1,
+        H108: 0,
+        H789: 2,
+      },
+    },
+    E919: {
+      communication: 'Fix',
+      management: 'Hope',
+      response: 'Action',
+      position: 'Quick',
+      motivation: 'Competition',
+      brain: 'Left',
+      romance: {
+        A000: 2,
+        A024: 0,
+        A100: 0,
+        A888: 1,
+        E001: 1,
+        E125: 2,
+        E555: 0,
+        E919: 3,
+        H012: 3,
+        H025: 1,
+        H108: 2,
+        H789: 1,
+      },
+      business: {
+        A000: 2,
+        A024: 0,
+        A100: 0,
+        A888: 3,
+        E001: 2,
+        E125: 2,
+        E555: 2,
+        E919: 0,
+        H012: 1,
+        H025: 0,
+        H108: 3,
+        H789: 3,
+      },
+    },
+    H012: {
+      communication: 'Fix',
+      management: 'Hope',
+      response: 'Action',
+      position: 'Quick',
+      motivation: 'SkillUp',
+      brain: 'Left',
+      romance: {
+        A000: 2,
+        A024: 2,
+        A100: 3,
+        A888: 0,
+        E001: 2,
+        E125: 0,
+        E555: 0,
+        E919: 3,
+        H012: 2,
+        H025: 2,
+        H108: 2,
+        H789: 0,
+      },
+      business: {
+        A000: 0,
+        A024: 2,
+        A100: 2,
+        A888: 0,
+        E001: 0,
+        E125: 0,
+        E555: 3,
+        E919: 2,
+        H012: 3,
+        H025: 1,
+        H108: 2,
+        H789: 1,
+      },
+    },
+    H025: {
+      communication: 'Fix',
+      management: 'Care',
+      response: 'Action',
+      position: 'Adjust',
+      motivation: 'SkillUp',
+      brain: 'Right',
+      romance: {
+        A000: 0,
+        A024: 3,
+        A100: 0,
+        A888: 0,
+        E001: 3,
+        E125: 0,
+        E555: 2,
+        E919: 0,
+        H012: 0,
+        H025: 2,
+        H108: 2,
+        H789: 3,
+      },
+      business: {
+        A000: 0,
+        A024: 3,
+        A100: 0,
+        A888: 0,
+        E001: 2,
+        E125: 0,
+        E555: 1,
+        E919: 0,
+        H012: 2,
+        H025: 3,
+        H108: 2,
+        H789: 0,
+      },
+    },
+    H108: {
+      communication: 'Flex',
+      management: 'Hope',
+      response: 'Mind',
+      position: 'Brain',
+      motivation: 'Safety',
+      brain: 'Right',
+      romance: {
+        A000: 0,
+        A024: 0,
+        A100: 3,
+        A888: 3,
+        E001: 1,
+        E125: 0,
+        E555: 0,
+        E919: 0,
+        H012: 0,
+        H025: 3,
+        H108: 3,
+        H789: 2,
+      },
+      business: {
+        A000: 0,
+        A024: 0,
+        A100: 0,
+        A888: 2,
+        E001: 0,
+        E125: 0,
+        E555: 0,
+        E919: 3,
+        H012: 1,
+        H025: 3,
+        H108: 2,
+        H789: 1,
+      },
+    },
+    H789: {
+      communication: 'Flex',
+      management: 'Care',
+      response: 'Mind',
+      position: 'Direct',
+      motivation: 'Safety',
+      brain: 'Left',
+      romance: {
+        A000: 1,
+        A024: 1,
+        A100: 1,
+        A888: 1,
+        E001: 2,
+        E125: 3,
+        E555: 3,
+        E919: 1,
+        H012: 0,
+        H025: 0,
+        H108: 1,
+        H789: 2,
+      },
+      business: {
+        A000: 3,
+        A024: 0,
+        A100: 1,
+        A888: 2,
+        E001: 2,
+        E125: 2,
+        E555: 2,
+        E919: 3,
+        H012: 0,
+        H025: 0,
+        H108: 0,
+        H789: 0,
+      },
+    },
+  },
 };
-const NatureNameList = (() => {
-  const { natureNames } = constants;
-  const {
-    arts: { prefix: A, type: typeA },
-    education: { prefix: E, type: typeE },
-    humanities: { prefix: H, type: typeH },
-  } = natureNames;
-  return [
-    ...typeA.map((t) => `${A}${t}`),
-    ...typeE.map((t) => `${E}${t}`),
-    ...typeH.map((t) => `${H}${t}`),
-  ];
-})();
-const createComparator = (() => {
-  const { natureNames } = constants;
-  const { arts, education, humanities } = natureNames;
-  const [A, E, H] = [arts, education, humanities].map((x) => x.prefix);
-  const cmpA = (a, b) =>
-    (a === E && b === A) || (a === A && b === H) || (a === E && b === H)
-      ? 1
-      : -1;
-  const cmpE = (a, b) =>
-    (a === H && b === E) || (a === E && b === A) || (a === H && b === A)
-      ? 1
-      : -1;
-  const cmpH = (a, b) =>
-    (a === A && b === H) || (a === H && b === E) || (a === A && b === E)
-      ? 1
-      : -1;
-  const cmp = { A: cmpA, E: cmpE, H: cmpH };
-  return (type) => (a, b) =>
-    ((x, y, t, p) =>
-      x === y || p.test(x) || p.test(y) || p.test(t) ? 0 : cmp[t](x, y))(
-      a.charAt().toUpperCase(),
-      b.charAt().toUpperCase(),
-      type.charAt().toUpperCase(),
-      new RegExp(`[^${A}${E}${H}]`),
-    );
-})();
-const detail = (() => {
-  const {
-    natureNames,
-    natureBusinessMap,
-    natureRomanceMap,
-    natureDetailMap,
-    communicationNames,
-    managementNames,
-    responseNames,
-    positionNames,
-    motivationNames,
-    brainNames,
-  } = constants;
-  const {
-    arts: { prefix: A, type: typeA },
-    education: { prefix: E, type: typeE },
-    humanities: { prefix: H, type: typeH },
-  } = natureNames;
-  const nature = [
-    ...typeA.map((t) => `${A}${t}`),
-    ...typeE.map((t) => `${E}${t}`),
-    ...typeH.map((t) => `${H}${t}`),
-  ];
-  const natureMap = (table) =>
-    table
-      .map((r, ri) => ({
-        [NatureNameList[ri]]: r
-          .map((v, vi) => ({ [NatureNameList[vi]]: v }))
-          .reduce((p, c) => ({ ...p, ...c }), {}),
-      }))
-      .reduce((p, c) => ({ ...p, ...c }), {});
-  const business = natureMap(natureBusinessMap);
-  const romance = natureMap(natureRomanceMap);
-  const generate = (...row) => ({
-    communication: communicationNames[row[0]] || '',
-    management: managementNames[row[1]] || '',
-    response: responseNames[row[2]] || '',
-    position: positionNames[row[3]] || '',
-    motivation: motivationNames[row[4]] || '',
-    brain: brainNames[row[5]] || '',
-    romance: romance[nature[row[6]]] || {},
-    business: business[nature[row[6]]] || {},
-  });
-  const unknown = generate(-1, -1, -1, -1, -1, -1);
-  const map = new Map(
-    natureDetailMap.map((value, index) => [
-      nature[index],
-      generate(...value, index),
-    ]),
+const {
+  coefMonthlyRecord,
+  lifeBaseNames,
+  lifeBaseIndexes,
+  lifeBaseCoefTable,
+  coefNatures,
+  coefPotentials,
+  potentialNames,
+  natureTypes,
+  natureDetails,
+  affinity,
+} = constants;
+const coefMonthly = (date) =>
+  coefMonthlyRecord[date.getFullYear()][date.getMonth()];
+const tableXY = (label, table) => ({ x = 0, y = 0 } = {}) =>
+  ((z) => z || '')(label[((r) => (r ? r[x] : undefined))(table[y])]);
+const [lifeBase, natures, potential] = [
+  tableXY(lifeBaseNames, lifeBaseIndexes),
+  tableXY(natureTypes, coefNatures),
+  tableXY(potentialNames, coefPotentials),
+];
+const lifeBaseCoef = (month, dcoef) =>
+  ((r, d) =>
+    !r
+      ? Number.NaN
+      : r.find((v) => d < (v.t === null ? Number.MAX_VALUE : v.t)).v)(
+    lifeBaseCoefTable[month - 1],
+    dcoef,
   );
-  return (key) => ({ ...(map.get(key) || unknown) });
-})();
-const personality = (() => {
-  const {
-    coefMonthlyRecord,
-    lifeBaseNames,
-    lifeBaseIndexes,
-    lifeBaseCoefTable,
-    coefNatures,
-    coefPotentials,
-    potentialNames,
-  } = constants;
-  const coefMonthly = (date) =>
-    coefMonthlyRecord[date.getFullYear()][date.getMonth()];
-  const tableXY = (label, table) => ({ x = 0, y = 0 } = {}) =>
-    ((z) => z || '')(label[((r) => (r ? r[x] : undefined))(table[y])]);
-  const lifeBase = tableXY(lifeBaseNames, lifeBaseIndexes);
-  const MAX = Number.MAX_VALUE;
-  const table = lifeBaseCoefTable;
-  const lifeBaseCoef = (month, dcoef) =>
-    ((r, d) =>
-      !r ? Number.NaN : r.find((v) => d < (v.t === null ? MAX : v.t)).v)(
-      table[month - 1],
-      dcoef,
-    );
-  const natures = tableXY(NatureNameList, coefNatures);
-  const potential = tableXY(potentialNames, coefPotentials);
-  const ymd = (birth) => {
-    const ld = typeof birth === 'string' ? new Date(birth) : birth;
-    const dcoef = coefMonthly(ld);
-    if (Number.isNaN(dcoef)) {
-      throw new Error();
-    }
-    return {
-      year: Math.floor(ld.getFullYear()),
-      month: Math.floor(ld.getMonth() + 1),
-      date: Math.floor(ld.getDate()),
-      dcoef,
-    };
+const ymd = (birth) => {
+  const ld = typeof birth === 'string' ? new Date(birth) : birth;
+  const dcoef = coefMonthly(ld);
+  if (Number.isNaN(dcoef)) {
+    throw new Error();
+  }
+  return {
+    year: Math.floor(ld.getFullYear()),
+    month: Math.floor(ld.getMonth() + 1),
+    date: Math.floor(ld.getDate()),
+    dcoef,
   };
-  const naturePotential = (cycle) => {
-    const code = (func, limit) => (v) =>
-      func({ x: (v % limit || limit) - 1, y: cycle });
-    return { mn: code(natures, 12), mp: code(potential, 10) };
+};
+const naturePotential = (cycle) => {
+  const code = (func, limit) => (v) =>
+    func({ x: (v % limit || limit) - 1, y: cycle });
+  return { mn: code(natures, 12), mp: code(potential, 10) };
+};
+const personality = (birth) => {
+  const { year, month, date, dcoef } = ymd(birth);
+  const yh = Math.floor(year * 0.01);
+  const early = Math.floor(month <= 2);
+  const icoef = month + early * 12;
+  const inner = [
+    5.25 * ((year % 100) - early),
+    0.6 * (icoef + 1),
+    4.25 * yh,
+  ].reduce((p, c) => p + Math.floor(c), date + 1);
+  const ge = date >= dcoef;
+  const outer = (month - Math.floor(!ge) || 12) + 1;
+  const ymb = year - (month === 2 && ge ? early : 0);
+  const lbc = lifeBaseCoef(month, date - dcoef) - 1;
+  const cycle = (inner + 6) % 10;
+  const { mn, mp } = naturePotential(cycle);
+  return {
+    inner: mn(inner + yh * 4 + icoef * 6),
+    outer: mn(outer),
+    cycle: cycle || 10,
+    lifeBase: lifeBase({ x: lbc, y: cycle }),
+    potential: `${mp(ymb + 7)}-${mp(year * 2 + outer + 2)}`,
+    workstyle: mn(ymb + 9),
   };
-  return (birth) => {
-    const { year, month, date, dcoef } = ymd(birth);
-    const yh = Math.floor(year * 0.01);
-    const early = Math.floor(month <= 2);
-    const icoef = month + early * 12;
-    const inner = [
-      5.25 * ((year % 100) - early),
-      0.6 * (icoef + 1),
-      4.25 * yh,
-    ].reduce((p, c) => p + Math.floor(c), date + 1);
-    const ge = date >= dcoef;
-    const outer = (month - Math.floor(!ge) || 12) + 1;
-    const ymb = year - (month === 2 && ge ? early : 0);
-    const lbc = lifeBaseCoef(month, date - dcoef) - 1;
-    const cycle = (inner + 6) % 10;
-    const { mn, mp } = naturePotential(cycle);
-    return {
-      inner: mn(inner + yh * 4 + icoef * 6),
-      outer: mn(outer),
-      cycle: cycle || 10,
-      lifeBase: lifeBase({ x: lbc, y: cycle }),
-      potential: `${mp(ymb + 7)}-${mp(year * 2 + outer + 2)}`,
-      workstyle: mn(ymb + 9),
-    };
-  };
-})();
+};
+const detail = (key) => natureDetails[key];
+const createComparator = (type) => (a, b) => {
+  const [x, y, t] = [a, b, type].map((i) => i.charAt().toUpperCase());
+  const p = /[^AEH]/;
+  return x === y || p.test(x) || p.test(y) || p.test(t) ? 0 : affinity[t][x][y];
+};
 const bizTeam = (business, personalType, position) => {
   const map = Object.entries(business).map(([type, pri]) => ({
     type,
@@ -535,11 +885,12 @@ const bizTeam = (business, personalType, position) => {
   );
   return result;
 };
-const mod = (date) => {
-  const p = personality(date);
-  const i = detail(p.inner);
-  const t = bizTeam(i.business, p.inner, i.position);
-  return { personal: p, inner: i, team: t };
+const mod = {
+  bizTeam,
+  comparator: createComparator,
+  detail,
+  personality,
+  types: natureTypes,
 };
 try {
   module.exports = mod;
